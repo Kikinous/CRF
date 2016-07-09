@@ -644,9 +644,9 @@ class brouillard:
         ''' "CE" ou "BP" '''
         self.CEouBP = CEouBP
         self.wb = openpyxl.load_workbook(filename, data_only=True)
-        self.ws = self.wb.get_sheet_by_name('Feuil1')
+        self.ws = self.wb.get_sheet_by_name('Brouillard')
 
-    def decipher_brouillard(self):
+    def decipher_brouillard(self, NDI_exist=True):
         '''
         - Get all transactions from brouillard CE
         '''
@@ -672,8 +672,10 @@ class brouillard:
             i_premiere_recette = i + 1
             print "Les recettes commencent en ligne " + str(i_premiere_recette)
             i = i_premiere_recette
-            while not re.match("(NDI D).*",
-                               str(self.ws.cell(row=i, column=1).value)):
+            print str(self.ws.cell(row=i, column=1).value)
+            while re.match("(^20\d\d-\d\d-\d\d ).+",
+                           str(self.ws.cell(row=i, column=1).value)):
+                print str(self.ws.cell(row=i, column=1).value)
                 T = transaction(i, "R", self.ws)
                 liste_recettes.append(T)
                 i += 1
@@ -686,6 +688,12 @@ class brouillard:
         else:
             print "Probleme d'identification du brouillard"
             exit()
+        if not NDI_exist:
+            self.depenses = liste_depenses
+            self.recettes = liste_recettes
+            self.NDI_depenses = liste_NDI_depenses
+            self.NDI_recettes = liste_NDI_recettes
+            return
         # NDI
         i_premiere_NDI_R = i + 1
         print "Les NDI depenses " + self.CEouBP + " commencent en ligne " + \
@@ -843,17 +851,16 @@ if __name__ == '__main__':
     config_values = configuration()
     set_configuration(config_values)
 
-    brouillard_CE = brouillard(config_values.file_brouillard_CE, "CE")
-    brouillard_CE.decipher_brouillard()
-    brouillard_BP = brouillard(config_values.file_brouillard_BP, "BP")
-    brouillard_BP.decipher_brouillard()
 
     if config_values.debug_CE:
+        brouillard_CE = brouillard(config_values.file_brouillard_CE, "CE")
+        brouillard_CE.decipher_brouillard(NDI_exist=False)
         balance_CE = \
             Balance(config_values.file_balance_input,
                     (brouillard_CE.depenses + brouillard_CE.NDI_depenses,
                      brouillard_CE.recettes + brouillard_CE.NDI_recettes))
         print "enregistrement de la balance : Balance_CE_DEBUG.xlsx"
+        balance_CE.cumul(config_values)
         balance_CE.wb_out.save("Balance_CE_DEBUG.xlsx")
         debug_brouillard_balance(config_values, brouillard_CE, balance_CE)
         print "Resultat balance CE = " + str(balance_CE.resultat)
@@ -861,6 +868,8 @@ if __name__ == '__main__':
             str(config_values.brouillard_CE_resulat) + "\n\n"
 
     if config_values.debug_BP:
+        brouillard_BP = brouillard(config_values.file_brouillard_BP, "BP")
+        brouillard_BP.decipher_brouillard()
         balance_BP = \
             Balance(config_values.file_balance_input,
                     (brouillard_BP.depenses + brouillard_BP.NDI_depenses,
