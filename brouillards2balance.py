@@ -638,7 +638,7 @@ class brouillard:
         self.wb = openpyxl.load_workbook(filename, data_only=True)
         self.ws = self.wb.get_sheet_by_name('Brouillard')
 
-    def decipher_brouillard(self, NDI_exist=True):
+    def decipher(self, NDI_exist=True):
         '''
         - Get all transactions from brouillard CE
         '''
@@ -843,33 +843,35 @@ if __name__ == '__main__':
     config.read('brouillards2balance.cfg')
 
     if config.getboolean('Balance', 'balance_CE_create'):
-        brouillard_CE = brouillard(config.get('Brouillard_CE', 'file_input'),
-                                   "CE")
-        brouillard_CE.decipher_brouillard(NDI_exist=False)
+        brouillard_CE = brouillard(config.get('Brouillard_CE', 'file'), "CE")
+        brouillard_CE.decipher(config.getboolean('Brouillard_CE', 'NDI_exist'))
+
         balance_CE = \
-            Balance(config.get('Balance', 'balance_file_input'),
+            Balance(config.get('Balance', 'file_in'),
                     (brouillard_CE.depenses + brouillard_CE.NDI_depenses,
                      brouillard_CE.recettes + brouillard_CE.NDI_recettes))
         balance_CE.cumul((config.getfloat('Brouillard_CE', 'solde_bancaire'),
                           None))
         print "enregistrement de la balance : Balance_CE_DEBUG.xlsx"
         balance_CE.wb_out.save("Balance_CE_DEBUG.xlsx")
+
         debug_brou2bal((config.getfloat('Brouillard_CE', 'resultat'), None),
                        brouillard_CE, balance_CE)
         print "Resultat balance CE = " + str(balance_CE.resultat)
         print "Resultat brouillards CE = " + \
             str(config.getfloat('Brouillard_CE', 'resultat')) + "\n\n"
 
-    exit()
-
     if config.getboolean('Balance', 'balance_BP_create'):
-        brouillard_BP = brouillard(config.get('Brouillard_BP', 'file_input'),
-                                   "BP")
-        brouillard_BP.decipher_brouillard()
+        brouillard_BP = brouillard(config.get('Brouillard_BP', 'file'), "BP")
+        brouillard_BP.decipher()
         balance_BP = \
-            Balance(config.get('Balance', 'balance_file_input'),
+            Balance(config.get('Balance', 'file_in'),
                     (brouillard_BP.depenses + brouillard_BP.NDI_depenses,
                      brouillard_BP.recettes + brouillard_BP.NDI_recettes))
+        balance_CE.cumul((config.getfloat('Brouillard_BP', 'solde_bancaire'),
+                          None))
+        print "enregistrement de la balance : Balance_BP_DEBUG.xlsx"
+        balance_CE.wb_out.save("Balance_BP_DEBUG.xlsx")
         debug_brou2bal((None, config.getfloat('Brouillard_BP', 'resultat')),
                        brouillard_BP, balance_BP)
         print "Resultat balance BP = " + str(balance_BP.resultat)
@@ -877,14 +879,15 @@ if __name__ == '__main__':
             str(config.getfloat('Brouillard_BP', 'resultat')) + "\n\n"
 
     if config.getboolean('Balance', 'balance_global_create'):
+        print "COUCOU"
         balance = \
-            Balance(config.get('Brouillard_BP', 'file_input'),
+            Balance(config.get('Balance', 'file_in'),
                     (brouillard_CE.depenses + brouillard_CE.NDI_depenses +
                      brouillard_BP.depenses + brouillard_BP.NDI_depenses,
                      brouillard_CE.recettes + brouillard_CE.NDI_recettes +
                      brouillard_BP.recettes + brouillard_BP.NDI_recettes))
-        balance.cumul(config.getfloat('Brouillard_CE', 'solde_bancaire'),
-                      config.getfloat('Brouillard_BP', 'solde_bancaire'))
+        balance.cumul((config.getfloat('Brouillard_CE', 'solde_bancaire'),
+                      config.getfloat('Brouillard_BP', 'solde_bancaire')))
         balance.wb_out.save(balance.file_balance_output)
 
         print "\n=============== VERIFICATION ====================="
