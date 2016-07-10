@@ -19,20 +19,6 @@ import ConfigParser
 # import sys
 
 
-class configuration:
-    def __init__(self):
-        self.file_balance_in = None
-        self.file_brouillard_CE = None
-        self.file_brouillard_BP = None
-        self.brouillard_CE_resulat = None
-        self.brouillard_BP_resulat = None
-        self.brouillards_resultat = None
-        self.solde_comptable_CE = None  # selon le brouillard d'Anne Lise
-        self.solde_comptable_BP = None  # selon le brouillard d'Anne Lise
-        self.solde_bancaire_CE = None  # selon le pdf du releves bancaires
-        self.solde_bancaire_BP = None  # selon le rapprochement d'Anne-Lise
-
-
 class transaction:
     def __init__(self, ligne=None, RouD=None, ws_banque=None):
         self.ligne = ligne
