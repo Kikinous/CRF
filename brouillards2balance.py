@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 '''
 Calcule la balance analytique a partir des brouillards de banque
-
-USAGE :
-$python brouillards2balance.py
-CONFIG:
-les 3 variables globales au debut de ce fichier
-OUTPUT:
-banlance_new.xlsx
-
-Copyright: Croix-Rouge Francaise 2016 (French Red Cross)
-Author   : Julien Borghetti June 24th 2016
+USAGE     : $python brouillards2balance.py
+SETUP     : brouillards2balance.cfg
+OUTPUT    : banlance_new.xlsx
+Copyright : Croix-Rouge Francaise 2016 (French Red Cross)
+Author    : Julien Borghetti 2016
 '''
 
 import openpyxl
@@ -18,23 +13,10 @@ import subprocess
 import re
 import calendar
 import datetime
-from brouillards2balance_config import set_configuration
+import ConfigParser
+
 # import ipdb
 # import sys
-
-
-class configuration:
-    def __init__(self):
-        self.file_balance_in = None
-        self.file_brouillard_CE = None
-        self.file_brouillard_BP = None
-        self.brouillard_CE_resulat = None
-        self.brouillard_BP_resulat = None
-        self.brouillards_resultat = None
-        self.solde_comptable_CE = None  # selon le brouillard d'Anne Lise
-        self.solde_comptable_BP = None  # selon le brouillard d'Anne Lise
-        self.solde_bancaire_CE = None  # selon le pdf du releves bancaires
-        self.solde_bancaire_BP = None  # selon le rapprochement d'Anne-Lise
 
 
 class transaction:
@@ -603,7 +585,8 @@ class Balance:
         self.resultat = self.ws.cell(row=54, column=20).value
         return self.resultat
 
-    def cumul(self, ConfigFile=None):
+    def cumul(self, (solde_banque_CE, solde_banque_BP)=(None, None)):
+        print "CUMUL DEPUIS JANVIER"
         l_recettes = range(7, 13)+[16, 22, 24, 25, 26, 28, 31, 34, 36, 37, 38,
                                    43, 45, 47, 48, 49, 51, 52, 53]
         for ligne in l_recettes:
@@ -627,16 +610,25 @@ class Balance:
         for ligne in [55, 56]:
             self.ws.cell(row=ligne, column=36).value = self.date_finale
             self.ws.cell(row=ligne, column=36).number_format = self.date_Format
-        if ConfigFile:
+        if (solde_banque_CE, solde_banque_BP) is not (None, None):
             self.solde_final = self.solde_initial + self.resultat
             self.ws.cell(row=56, column=15, value=self.solde_final)
             self.ws.cell(row=56, column=38, value=self.solde_final)
-            self.ws.cell(row=55, column=15,
-                         value=ConfigFile.solde_bancaire_CE +
-                         ConfigFile.solde_bancaire_BP)
-            self.ws.cell(row=55, column=38,
-                         value=ConfigFile.solde_bancaire_CE +
-                         ConfigFile.solde_bancaire_BP)
+            if solde_banque_CE is not None and solde_banque_BP is not None:
+                self.ws.cell(row=55, column=15,
+                             value=solde_banque_CE + solde_banque_BP)
+                self.ws.cell(row=55, column=38,
+                             value=solde_banque_CE + solde_banque_BP)
+            elif solde_banque_CE is not None:
+                self.ws.cell(row=55, column=15, value=solde_banque_CE)
+                self.ws.cell(row=55, column=38, value=solde_banque_CE)
+            elif solde_banque_BP is not None:
+                self.ws.cell(row=55, column=15, value=solde_banque_BP)
+                self.ws.cell(row=55, column=38, value=solde_banque_BP)
+            else:
+                print "\nERREUR dans balance.cumul() fonction"
+                print "Quitting"
+                exit()
 
 
 class brouillard:
@@ -644,9 +636,9 @@ class brouillard:
         ''' "CE" ou "BP" '''
         self.CEouBP = CEouBP
         self.wb = openpyxl.load_workbook(filename, data_only=True)
-        self.ws = self.wb.get_sheet_by_name('Feuil1')
+        self.ws = self.wb.get_sheet_by_name('Brouillard')
 
-    def decipher_brouillard(self):
+    def decipher(self, NDI_exist=True):
         '''
         - Get all transactions from brouillard CE
         '''
@@ -672,8 +664,8 @@ class brouillard:
             i_premiere_recette = i + 1
             print "Les recettes commencent en ligne " + str(i_premiere_recette)
             i = i_premiere_recette
-            while not re.match("(NDI D).*",
-                               str(self.ws.cell(row=i, column=1).value)):
+            while re.match("(^20\d\d-\d\d-\d\d ).+",
+                           str(self.ws.cell(row=i, column=1).value)):
                 T = transaction(i, "R", self.ws)
                 liste_recettes.append(T)
                 i += 1
@@ -686,6 +678,12 @@ class brouillard:
         else:
             print "Probleme d'identification du brouillard"
             exit()
+        if not NDI_exist:
+            self.depenses = liste_depenses
+            self.recettes = liste_recettes
+            self.NDI_depenses = liste_NDI_depenses
+            self.NDI_recettes = liste_NDI_recettes
+            return
         # NDI
         i_premiere_NDI_R = i + 1
         print "Les NDI depenses " + self.CEouBP + " commencent en ligne " + \
@@ -734,16 +732,17 @@ class brouillard:
         return resultat
 
 
-def debug_brouillard_balance(config, brouillard, balance):
+def debug_brou2bal((brouillard_CE_resulat, brouillard_BP_resulat),
+                   brouillard, balance):
     print "\n==================  DEBUG  ======================="
     print "==================   " + brouillard.CEouBP + \
         "    ======================="
     if brouillard.CEouBP == "CE":
         print "Resultat inscrit sur le brouillard   = " + \
-            str(config.brouillard_CE_resulat)
+            str(brouillard_CE_resulat)
     elif brouillard.CEouBP == "BP":
         print "Resultat inscrit sur le brouillard   = " + \
-            str(config.brouillard_BP_resulat)
+            str(brouillard_BP_resulat)
     else:
         print "ERREUR dans la fonction debug"
         exit()
@@ -840,61 +839,72 @@ def debug_brouillard_balance(config, brouillard, balance):
     print "===============   END DEBUG  ====================="
 
 if __name__ == '__main__':
-    config_values = configuration()
-    set_configuration(config_values)
+    config = ConfigParser.RawConfigParser()
+    config.read('brouillards2balance.cfg')
 
-    brouillard_CE = brouillard(config_values.file_brouillard_CE, "CE")
-    brouillard_CE.decipher_brouillard()
-    brouillard_BP = brouillard(config_values.file_brouillard_BP, "BP")
-    brouillard_BP.decipher_brouillard()
+    if config.getboolean('Balance', 'balance_CE_create'):
+        brouillard_CE = brouillard(config.get('Brouillard_CE', 'file'), "CE")
+        brouillard_CE.decipher(config.getboolean('Brouillard_CE', 'NDI_exist'))
 
-    if config_values.debug_CE:
         balance_CE = \
-            Balance(config_values.file_balance_input,
+            Balance(config.get('Balance', 'file_in'),
                     (brouillard_CE.depenses + brouillard_CE.NDI_depenses,
                      brouillard_CE.recettes + brouillard_CE.NDI_recettes))
+        balance_CE.cumul((config.getfloat('Brouillard_CE', 'solde_bancaire'),
+                          None))
         print "enregistrement de la balance : Balance_CE_DEBUG.xlsx"
         balance_CE.wb_out.save("Balance_CE_DEBUG.xlsx")
-        debug_brouillard_balance(config_values, brouillard_CE, balance_CE)
+
+        debug_brou2bal((config.getfloat('Brouillard_CE', 'resultat'), None),
+                       brouillard_CE, balance_CE)
         print "Resultat balance CE = " + str(balance_CE.resultat)
         print "Resultat brouillards CE = " + \
-            str(config_values.brouillard_CE_resulat) + "\n\n"
+            str(config.getfloat('Brouillard_CE', 'resultat')) + "\n\n"
 
-    if config_values.debug_BP:
+    if config.getboolean('Balance', 'balance_BP_create'):
+        brouillard_BP = brouillard(config.get('Brouillard_BP', 'file'), "BP")
+        brouillard_BP.decipher()
         balance_BP = \
-            Balance(config_values.file_balance_input,
+            Balance(config.get('Balance', 'file_in'),
                     (brouillard_BP.depenses + brouillard_BP.NDI_depenses,
                      brouillard_BP.recettes + brouillard_BP.NDI_recettes))
-        debug_brouillard_balance(config_values, brouillard_BP, balance_BP)
+        balance_CE.cumul((config.getfloat('Brouillard_BP', 'solde_bancaire'),
+                          None))
+        print "enregistrement de la balance : Balance_BP_DEBUG.xlsx"
+        balance_CE.wb_out.save("Balance_BP_DEBUG.xlsx")
+        debug_brou2bal((None, config.getfloat('Brouillard_BP', 'resultat')),
+                       brouillard_BP, balance_BP)
         print "Resultat balance BP = " + str(balance_BP.resultat)
         print "Resultat brouillards BP = " + \
-            str(config_values.brouillard_BP_resulat) + "\n\n"
+            str(config.getfloat('Brouillard_BP', 'resultat')) + "\n\n"
 
-    if config_values.balance_globale_BP_CE:
+    if config.getboolean('Balance', 'balance_global_create'):
+        print "COUCOU"
         balance = \
-            Balance(config_values.file_balance_input,
+            Balance(config.get('Balance', 'file_in'),
                     (brouillard_CE.depenses + brouillard_CE.NDI_depenses +
                      brouillard_BP.depenses + brouillard_BP.NDI_depenses,
                      brouillard_CE.recettes + brouillard_CE.NDI_recettes +
                      brouillard_BP.recettes + brouillard_BP.NDI_recettes))
-        balance.cumul(config_values)
+        balance.cumul((config.getfloat('Brouillard_CE', 'solde_bancaire'),
+                      config.getfloat('Brouillard_BP', 'solde_bancaire')))
         balance.wb_out.save(balance.file_balance_output)
 
         print "\n=============== VERIFICATION ====================="
 
         print "Resultat balance CE+BP     = " + str(balance.resultat)
         print "Resultat brouillards CE+BP = " + \
-            str(config_values.brouillard_CE_resulat +
-                config_values.brouillard_BP_resulat)
+            str(config.getfloat('Brouillard_CE', 'resultat') +
+                config.getfloat('Brouillard_BP', 'resultat'))
         print "Resultats cumules balance CE+BP     = " + \
             str(balance.resultat_cumul)
         print "Resultats cumules brouillards CE+BP = " + \
-            str(config_values.brouillard_CE_resulat_cumul +
-                config_values.brouillard_BP_resulat_cumul)
+            str(config.getfloat('Brouillard_CE', 'resultat_cumul') +
+                config.getfloat('Brouillard_BP', 'resultat_cumul'))
         print "\n=============== INFORMATIONS ====================="
         print "Solde comptable CE+BP = " + \
-            str(config_values.solde_comptable_CE +
-                config_values.solde_comptable_BP)
+            str(config.getfloat('Brouillard_CE', 'solde_comptable') +
+                config.getfloat('Brouillard_BP', 'solde_comptable'))
         print "Solde bancaire CE+BP = " + \
-            str(config_values.solde_bancaire_CE +
-                config_values.solde_bancaire_BP)
+            str(config.getfloat('Brouillard_CE', 'solde_bancaire') +
+                config.getfloat('Brouillard_BP', 'solde_bancaire'))
