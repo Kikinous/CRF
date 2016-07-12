@@ -944,25 +944,31 @@ if __name__ == '__main__':
                                                'solde_bancaire')))
         balance.wb_out.save(balance.file_balance_output)
 
-        print "=============== VERIFICATION ====================="
+        logger.warning("=============== VERIFICATION =====================")
 
-        print "Resultat balance CE+BP     = " + str(balance.resultat)
-        print "Resultat brouillards CE+BP = " + \
-            str(config.getfloat('Brouillard_CE', 'resultat') +
-                config.getfloat('Brouillard_BP', 'resultat'))
-        print "Resultats cumules balance CE+BP     = " + \
-            str(balance.resultat_cumul)
-        print "Resultats cumules brouillards CE+BP = " + \
-            str(config.getfloat('Brouillard_CE', 'resultat_cumul') +
-                config.getfloat('Brouillard_BP', 'resultat_cumul'))
-        print "=============== INFORMATIONS ====================="
-        print "Solde comptable CE+BP = " + \
-            str(config.getfloat('Brouillard_CE', 'solde_comptable') +
-                config.getfloat('Brouillard_BP', 'solde_comptable'))
-        print "Solde bancaire CE+BP = " + \
-            str(config.getfloat('Brouillard_CE', 'solde_bancaire') +
-                config.getfloat('Brouillard_BP', 'solde_bancaire'))
-        print "=================================================="
+        logger.warning("Resultat balance CE+BP     = " + str(balance.resultat))
+        logger.warning("Resultat brouillards CE+BP = " +
+                       str(config.getfloat('Brouillard_CE', 'resultat') +
+                           config.getfloat('Brouillard_BP', 'resultat')))
+        logger.warning("Resultats cumules balance CE+BP     = " +
+                       str(balance.resultat_cumul))
+        logger.warning("Resultats cumules brouillards CE+BP = " +
+                       str(config.getfloat('Brouillard_CE',
+                                           'resultat_cumul') +
+                           config.getfloat('Brouillard_BP',
+                                           'resultat_cumul')))
+        logger.warning("=============== INFORMATIONS =====================")
+        logger.warning("Solde comptable CE+BP = " +
+                       str(config.getfloat('Brouillard_CE',
+                                           'solde_comptable') +
+                           config.getfloat('Brouillard_BP',
+                                           'solde_comptable')))
+        logger.warning("Solde bancaire CE+BP = " +
+                       str(config.getfloat('Brouillard_CE',
+                                           'solde_bancaire') +
+                           config.getfloat('Brouillard_BP',
+                                           'solde_bancaire')))
+        logger.warning("==================================================")
 
     if config.getboolean('DepensesRecettes', 'faire'):
         logger.info('CREATION DU FICHIER DE DEPENSES ET RECETTES')
