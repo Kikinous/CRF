@@ -842,15 +842,6 @@ def debug_brou2bal((brouillard_CE_resulat, brouillard_BP_resulat),
     print "Sous total Resultat CE : 4016 = " + \
         str(brouillard.resultat(brouillard.depenses + brouillard.NDI_depenses,
             brouillard.recettes + brouillard.NDI_recettes, antenne=4016))
-    if brouillard.CEouBP == "CE":
-        pass
-    elif brouillard.CEouBP == "BP":
-        pass
-        balance_BP.wb_out.save("Balance_BP_DEBUG.xlsx")
-        print "enregistrement de la balance : Balance_BP_DEBUG.xlsx"
-    else:
-        print "ERREUR dans la fonction debug"
-        exit()
     print "===============   END DEBUG  ====================="
 
 
@@ -876,6 +867,42 @@ def ajout_logger():
     return _logger
 
 
+def create_balance_DEBUG(config, brouillard, log, CEouBP="CE"):
+    if CEouBP == "CE":
+        balance_CE = \
+            Balance(config.get('Balance', 'file_in'), logger,
+                    (brouillard.depenses + brouillard.NDI_depenses,
+                     brouillard.recettes + brouillard.NDI_recettes))
+        balance_CE.cumul(logger, (config.getfloat('Brouillard_CE',
+                                                  'solde_bancaire'), None))
+        print "enregistrement de la balance : Balance_CE_DEBUG.xlsx"
+        balance_CE.wb_out.save("Balance_CE_DEBUG.xlsx")
+        debug_brou2bal((config.getfloat('Brouillard_CE', 'resultat'),
+                        None),
+                       brouillard, balance_CE)
+        print "Resultat balance CE = " + str(balance_CE.resultat)
+        print "Resultat brouillards CE = " + \
+            str(config.getfloat('Brouillard_CE', 'resultat')) + "\n\n"
+    if CEouBP == "BP":
+        brouillard_BP = brouillard(config.get('Brouillard_BP', 'file'), "BP")
+        brouillard_BP.decipher(logger)
+        if config.getboolean('Brouillard_BP', 'debug'):
+            balance_BP = \
+                Balance(config.get('Balance', 'file_in'), logger,
+                        (brouillard_BP.depenses + brouillard_BP.NDI_depenses,
+                         brouillard_BP.recettes + brouillard_BP.NDI_recettes))
+            balance_CE.cumul(logger, (config.getfloat('Brouillard_BP',
+                                                      'solde_bancaire'), None))
+            print "enregistrement de la balance : Balance_BP_DEBUG.xlsx"
+            balance_BP.wb_out.save("Balance_BP_DEBUG.xlsx")
+            debug_brou2bal((None, config.getfloat('Brouillard_BP',
+                                                  'resultat')),
+                           brouillard_BP, balance_BP)
+            print "Resultat balance BP = " + str(balance_BP.resultat)
+            print "Resultat brouillards BP = " + \
+                str(config.getfloat('Brouillard_BP', 'resultat')) + "\n\n"
+
+
 antennes = [3969, 4010, 4011, 4012, 4015, 4016]
 ressources = ["A9031", "A9032", "A9033", "A9034", "A9035", "A9036", "A9030",
               "A3170", "A9037", "A9038", "A3160", "A3130", "A2040", "A2010",
@@ -896,40 +923,13 @@ if __name__ == '__main__':
         brouillard_CE.decipher(logger, config.getboolean('Brouillard_CE',
                                                          'NDI_exist'))
         if config.getboolean('Brouillard_CE', 'debug'):
-            balance_CE = \
-                Balance(config.get('Balance', 'file_in'), logger,
-                        (brouillard_CE.depenses + brouillard_CE.NDI_depenses,
-                         brouillard_CE.recettes + brouillard_CE.NDI_recettes))
-            balance_CE.cumul(logger, (config.getfloat('Brouillard_CE',
-                                                      'solde_bancaire'), None))
-            print "enregistrement de la balance : Balance_CE_DEBUG.xlsx"
-            balance_CE.wb_out.save("Balance_CE_DEBUG.xlsx")
-
-            debug_brou2bal((config.getfloat('Brouillard_CE', 'resultat'),
-                            None),
-                           brouillard_CE, balance_CE)
-            print "Resultat balance CE = " + str(balance_CE.resultat)
-            print "Resultat brouillards CE = " + \
-                str(config.getfloat('Brouillard_CE', 'resultat')) + "\n\n"
+            create_balance_DEBUG(config, brouillard_CE, logger, "CE")
 
     if config.getboolean('Balance', 'balance_BP_create'):
         brouillard_BP = brouillard(config.get('Brouillard_BP', 'file'), "BP")
         brouillard_BP.decipher(logger)
         if config.getboolean('Brouillard_BP', 'debug'):
-            balance_BP = \
-                Balance(config.get('Balance', 'file_in'), logger,
-                        (brouillard_BP.depenses + brouillard_BP.NDI_depenses,
-                         brouillard_BP.recettes + brouillard_BP.NDI_recettes))
-            balance_CE.cumul(logger, (config.getfloat('Brouillard_BP',
-                                                      'solde_bancaire'), None))
-            print "enregistrement de la balance : Balance_BP_DEBUG.xlsx"
-            balance_CE.wb_out.save("Balance_BP_DEBUG.xlsx")
-            debug_brou2bal((None, config.getfloat('Brouillard_BP',
-                                                  'resultat')),
-                           brouillard_BP, balance_BP)
-            print "Resultat balance BP = " + str(balance_BP.resultat)
-            print "Resultat brouillards BP = " + \
-                str(config.getfloat('Brouillard_BP', 'resultat')) + "\n\n"
+            create_balance_DEBUG(config, brouillard_BP, logger, "BP")
 
     if config.getboolean('Balance', 'balance_global_create'):
         balance = \
