@@ -223,8 +223,9 @@ class Balance:
                 column_antenne = 19
             else:
                 print "\n ERREUR : Antenne INCONNUE"
-                print "Antenne = " + str(liste[i].antenne)
-                print "ligne du brouillard = " + str(liste[i].ligne)
+                log.critical("Antenne = " + str(liste[i].antenne))
+                log.critical("brouillard = " + str(liste[i].CEouBP))
+                log.critical("ligne du brouillard = " + str(liste[i].ligne))
                 exit()
             self.peuple_balance_depenses_antenne(liste, i, column_antenne, log,
                                                  debug_antenne=debug_antenne)
@@ -390,7 +391,9 @@ class Balance:
                          self.ws.cell(row=52, column=antenne).value)
         else:
             log.critical("\n ERREUR : Transaction non traitee")
+            log.critical("brouillard = " + str(liste[i].CEouBP))
             log.critical("code imputation = " + str(liste[i].code))
+            log.critical("ligne = " + str(liste[i].ligne))
             exit()
 
     def peuple_balance_recettes(self, liste, log):
@@ -485,9 +488,14 @@ class Balance:
                         str(liste[i].ligne))
             val = liste[i].montant + self.ws.cell(row=51, column=antenne).value
             self.ws.cell(row=51, column=antenne, value=val)
+        elif str(liste[i].code) == "2745":
+            log.warning("--> versement emprunt : " +
+                        str(liste[i].ligne))
+            val = liste[i].montant + self.ws.cell(row=51, column=antenne).value
+            self.ws.cell(row=52, column=antenne, value=val)
         else:
-            log.critical("\n ERREUR : Transaction non traitee dans methode \
-                         peuple_balance_recettes_antenne")
+            log.critical("\n ERREUR : Transaction non traitee dans methode" +\
+                         " peuple_balance_recettes_antenne")
             log.critical("ligne du brouillard = " + str(liste[i].ligne))
             log.critical("code imputation = " + str(liste[i].code))
             exit()
@@ -1083,7 +1091,7 @@ def create_fichier_detailoperation(log, config, brouillard_CE,
 antennes = [3969, 4010, 4011, 4012, 4013, 4015, 4016]
 ressources = ["A9031", "A9032", "A9033", "A9034", "A9035", "A9036", "A9030",
               "A3170", "A9037", "A9038", "A3160", "A3130", "A2040", "A2010",
-              "A2013", "A3030", "A3010", "A9012", "A9011", "A9018"]
+              "A2013", "A3030", "A3010", "A9012", "A9011", "A9018", "2745"]
 emplois = ["A4012", "A3180", "A3170", "A3082", "A3084", "A3011", "A3012",
            "A3160", "A3161", "A3162", "A3131", "A3132", "A2041", "A2042",
            "A2011", "A2012", "A9010", "A9011", "A9012", "A9013", "A9014",
