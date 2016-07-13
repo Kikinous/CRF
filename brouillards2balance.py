@@ -10,6 +10,7 @@ Author    : Julien Borghetti 2016
 '''
 
 import openpyxl
+from openpyxl.styles import Style, Font
 import subprocess
 import re
 import calendar
@@ -23,8 +24,9 @@ from logging.handlers import RotatingFileHandler
 
 
 class transaction:
-    def __init__(self, ligne=None, RouD=None, ws_banque=None):
+    def __init__(self, log, CEouBP, ligne=None, RouD=None, ws_banque=None):
         self.ligne = ligne
+        self.CEouBP = CEouBP
         if (ligne, RouD, ws_banque) != (None, None, None):
             if RouD == "D":
                 self.montant = ws_banque.cell(row=ligne, column=16).value
@@ -44,6 +46,15 @@ class transaction:
             self.numero = ws_banque.cell(row=ligne, column=11).value
             self.financeur = ws_banque.cell(row=ligne, column=13).value
             self.date = ws_banque.cell(row=ligne, column=1).value
+            if (RouD == "D" and self.RouE == "E") \
+               or (RouD == "R" and self.RouE == "R"):
+                self.regularisation = False
+            else:
+                self.regularisation = True
+                log.debug("classe transaction: transaction.__init__ ")
+                log.warning("--> regularisation en ligne : " + str(ligne) +
+                            " du brouillard " + str(CEouBP))
+                self.log_transaction_debug_light(log)
         else:
             self.ligne = 0
             self.RouD = "?"  # Recette ou Depense
@@ -51,17 +62,16 @@ class transaction:
             self.antenne = 0
             self.montant = 0
 
-    def imprime(self):
-        print "    self.ligne   = " + str(self.ligne)
-        print "    self.RouE    = " + str(self.RouE)
-        print "    self.code    = " + str(self.code)
-        print "    self.antenne = " + str(self.antenne)
-        print "    self.montant = " + str(self.montant)
-        print " "
+    def log_transaction_debug(self, log):
+        log.debug("    self.ligne   = " + str(self.ligne))
+        log.debug("    self.RouE    = " + str(self.RouE))
+        log.debug("    self.code    = " + str(self.code))
+        log.debug("    self.antenne = " + str(self.antenne))
+        log.debug("    self.montant = " + str(self.montant))
 
-    def imprime_light(self):
-        print "    self.code = " + str(self.code)
-        print "    self.montant = " + str(self.montant)
+    def log_transaction_debug_light(self, log):
+        log.debug("    self.code = " + str(self.code))
+        log.debug("    self.montant = " + str(self.montant))
 
 
 class Balance:
@@ -463,7 +473,10 @@ class Balance:
             val = liste[i].montant+self.ws.cell(row=45, column=antenne).value
             self.ws.cell(row=45, column=antenne, value=val)
         elif liste[i].code == "A9012":
-            log.warning("--> regularisation en ligne : " + str(liste[i].ligne))
+            log.debug("méthode peuple_balance_recettes_antenne")
+            log.warning("--> regularisation depense ligne " +
+                        str(liste[i].ligne) + " brouillard " + liste[i].CEouBP)
+            liste[i].log_transaction_debug_light(log)
             val = -liste[i].montant+self.ws.cell(row=39,
                                                  column=antenne+10).value
             self.ws.cell(row=39, column=antenne+10, value=val)
@@ -668,7 +681,7 @@ class brouillard:
                       str(i_premiere_depense))
             i = i_premiere_depense
             while self.ws.cell(row=i, column=1).value != "RECETTES":
-                T = transaction(i, "D", self.ws)
+                T = transaction(log, self.CEouBP, i, "D", self.ws)
                 liste_depenses.append(T)
                 i += 1
             i_derniere_depense = i - 1
@@ -680,7 +693,7 @@ class brouillard:
             i = i_premiere_recette
             while re.match("(^20\d\d-\d\d-\d\d ).+",
                            str(self.ws.cell(row=i, column=1).value)):
-                T = transaction(i, "R", self.ws)
+                T = transaction(log, self.CEouBP, i, "R", self.ws)
                 liste_recettes.append(T)
                 i += 1
             i_derniere_recettes = i - 1
@@ -706,7 +719,7 @@ class brouillard:
         i = i_premiere_NDI_R
         while not re.match("(NDI R).*",
                            str(self.ws.cell(row=i, column=1).value)):
-            T = transaction(i, "D", self.ws)
+            T = transaction(log, self.CEouBP, i, "D", self.ws)
             liste_NDI_depenses.append(T)
             i += 1
         i_derniere_NDI_D = i - 1
@@ -718,7 +731,7 @@ class brouillard:
         i = i_premiere_NDI_R
         while re.match("^\d{4}\D\d{2}\D\d{2}\s.*",
                        str(self.ws.cell(row=i, column=1).value)):
-            T = transaction(i, "R", self.ws)
+            T = transaction(log, self.CEouBP, i, "R", self.ws)
             liste_NDI_recettes.append(T)
             i += 1
         i_derniere_NDI_R = i - 1
@@ -854,12 +867,14 @@ def ajout_logger():
     """
     _logger = logging.getLogger()
     _logger.setLevel(logging.DEBUG)
+
     formatter = \
         logging.Formatter('%(asctime)s :: %(levelname)s :: %(message)s')
     file_handler = RotatingFileHandler('activity.log', 'a', 1000000, 1)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
     _logger.addHandler(file_handler)
+
     steam_handler = logging.StreamHandler()
     steam_handler.setLevel(logging.INFO)
     _logger.addHandler(steam_handler)
@@ -867,7 +882,7 @@ def ajout_logger():
     return _logger
 
 
-def create_balance_DEBUG(config, brouillard, log, CEouBP="CE"):
+def create_balance_DEBUG(config, brouillard, logger, CEouBP="CE"):
     if CEouBP == "CE":
         balance_CE = \
             Balance(config.get('Balance', 'file_in'), logger,
@@ -903,35 +918,7 @@ def create_balance_DEBUG(config, brouillard, log, CEouBP="CE"):
                 str(config.getfloat('Brouillard_BP', 'resultat')) + "\n\n"
 
 
-antennes = [3969, 4010, 4011, 4012, 4015, 4016]
-ressources = ["A9031", "A9032", "A9033", "A9034", "A9035", "A9036", "A9030",
-              "A3170", "A9037", "A9038", "A3160", "A3130", "A2040", "A2010",
-              "A2013", "A3030", "A3010", "A9012", "A9011", "A9018"]
-emplois = ["A4012", "A3180", "A3170", "A3082", "A3084", "A3011", "A3012",
-           "A3160", "A3161", "A3162", "A3131", "A3132", "A2041", "A2042",
-           "A2011", "A2012", "A9010", "A9011", "A9012", "A9013", "A9014",
-           "A9015", "A9016", "A9032", "A3030", "21810None", "21810"]
-
-
-if __name__ == '__main__':
-    logger = ajout_logger()
-    config = ConfigParser.RawConfigParser()
-    config.read('brouillards2balance.cfg')
-
-    if config.getboolean('Balance', 'balance_CE_create'):
-        brouillard_CE = brouillard(config.get('Brouillard_CE', 'file'), "CE")
-        brouillard_CE.decipher(logger, config.getboolean('Brouillard_CE',
-                                                         'NDI_exist'))
-        if config.getboolean('Brouillard_CE', 'debug'):
-            create_balance_DEBUG(config, brouillard_CE, logger, "CE")
-
-    if config.getboolean('Balance', 'balance_BP_create'):
-        brouillard_BP = brouillard(config.get('Brouillard_BP', 'file'), "BP")
-        brouillard_BP.decipher(logger)
-        if config.getboolean('Brouillard_BP', 'debug'):
-            create_balance_DEBUG(config, brouillard_BP, logger, "BP")
-
-    if config.getboolean('Balance', 'balance_global_create'):
+def create_balance(config, brouillard_CE, brouillard_BP, logger):
         balance = \
             Balance(config.get('Balance', 'file_in'), logger,
                     (brouillard_CE.depenses + brouillard_CE.NDI_depenses +
@@ -970,36 +957,160 @@ if __name__ == '__main__':
                                            'solde_bancaire')))
         logger.warning("==================================================")
 
-    if config.getboolean('DepensesRecettes', 'faire'):
-        logger.info('CREATION DU FICHIER DE DEPENSES ET RECETTES')
-#       logger.warning('Testing %s', 'foo')
-        # nettoyer excel
-        filename = config.get('DepensesRecettes', 'file_in')
-        wb = openpyxl.load_workbook(filename, data_only=True)
-        ws = wb.get_sheet_by_name('Feuil1')
-        for l in range(9, 1001):
-            for c in range(1, 19):
-                ws.cell(row=l, column=c).value = None
-        # remplir excel
-        depenses = brouillard_CE.depenses + brouillard_CE.NDI_depenses + \
-            brouillard_BP.depenses + brouillard_BP.NDI_depenses
-        '''
-        Pour chaque antenne
-            pour chaque emplois
-                pour toutes les recettes
-                    ecrire la recette si egale a l'emloi et l'antenne
-                    additionner la recette
-                sauter une ligne
+
+def create_fichier_detailoperation(log, config, brouillard_CE,
+                                   brouillard_BP):
+    log.info('CREATION DU FICHIER DE DEPENSES ET RECETTES')
+    # nettoyer excel
+    filename = config.get('DepensesRecettes', 'file_in')
+    wb = openpyxl.load_workbook(filename, data_only=True)
+    ws = wb.get_sheet_by_name('Feuil1')
+    for l in range(9, 1001):
+        for c in range(1, 19):
+            ws.cell(row=l, column=c).value = None
+    # remplir excel
+    depenses = brouillard_CE.depenses + brouillard_CE.NDI_depenses + \
+        brouillard_BP.depenses + brouillard_BP.NDI_depenses
+    recettes = brouillard_CE.recettes + brouillard_CE.NDI_recettes + \
+        brouillard_BP.recettes + brouillard_BP.NDI_recettes
+    '''
+    Pour chaque antenne
+        pour chaque emplois
+            pour toutes les recettes
+                ecrire la recette si egale a l'emloi et l'antenne
+                additionner la recette
             sauter une ligne
-        Pour chaque antenne
-            pour chaque emplois
-                pour toutes les depenses
-                    ecrire la depense si egale a la ressource et l'antenne
-                    additionner la depense
-                sauter une ligne
+        sauter une ligne
+    Pour chaque antenne
+        pour chaque emplois
+            pour toutes les depenses
+                ecrire la depense si egale a la ressource et l'antenne
+                additionner la depense
             sauter une ligne
-        Comparer depenses et recettes additionnées avec celles du brouillard
-        '''
-        for antenne in antennes:
-            print antenne
-        wb.save("ListesDepense_DEBUG.xlsx")
+        sauter une ligne
+    Comparer depenses et recettes additionnées avec celles du brouillard
+    '''
+    ligne = 9
+    wrote = False
+    total_code = 0
+    total_antenne = 0
+    total_depenses = 0
+    for antenne in antennes:
+        for emploi in emplois:
+            for depense in depenses:
+                if depense.antenne == antenne and depense.code == emploi:
+                    _tmp = ws.cell(row=ligne, column=1).number_format
+                    ws.cell(row=ligne, column=1).value = depense.date
+                    ws.cell(row=ligne, column=1).number_format = _tmp
+                    ws.cell(row=ligne, column=5).value = depense.code
+                    ws.cell(row=ligne, column=7).value = depense.piece
+                    ws.cell(row=ligne, column=8).value = depense.objet
+                    ws.cell(row=ligne, column=9).value = depense.libelle
+                    ws.cell(row=ligne, column=10).value = depense.nature
+                    ws.cell(row=ligne, column=11).value = depense.numero
+                    ws.cell(row=ligne, column=12).value = depense.code
+                    ws.cell(row=ligne, column=13).value = depense.financeur
+                    ws.cell(row=ligne, column=14).value = depense.antenne
+                    ws.cell(row=ligne, column=16).value = depense.montant
+                    total_code += depense.montant
+                    total_antenne += depense.montant
+                    if depense.regularisation:
+                        log.warning("--> regularisation ligne " +
+                                    str(depense.ligne) + " brouillard " +
+                                    str(depense.CEouBP))
+                        ws.cell(row=ligne, column=19).value = "regularisation"
+                    wrote = True
+                    ligne += 1
+            if wrote:
+                wrote = False
+                ws.cell(row=ligne-1, column=17).value = total_code
+                total_code = 0
+                ligne += 1
+        ws.cell(row=ligne-2, column=18).value = total_antenne
+        total_depenses += total_antenne
+        total_antenne = 0
+        ligne += 1
+
+    ws.cell(row=ligne, column=1).value = "RECETTES"
+    ws.cell(row=ligne, column=1).style = Style(font=Font(bold=True,
+                                                         name='Arial',
+                                                         size=10))
+    ligne += 1
+    wrote = False
+    total_code = 0
+    total_antenne = 0
+    total_recettes = 0
+    for antenne in antennes:
+        for ressource in ressources:
+            for recette in recettes:
+                if recette.antenne == antenne and recette.code == ressource:
+                    _tmp = ws.cell(row=ligne, column=1).number_format
+                    ws.cell(row=ligne, column=1).value = recette.date
+                    ws.cell(row=ligne, column=1).number_format = _tmp
+                    ws.cell(row=ligne, column=5).value = recette.code
+                    ws.cell(row=ligne, column=7).value = recette.piece
+                    ws.cell(row=ligne, column=8).value = recette.objet
+                    ws.cell(row=ligne, column=9).value = recette.libelle
+                    ws.cell(row=ligne, column=10).value = recette.nature
+                    ws.cell(row=ligne, column=11).value = recette.numero
+                    ws.cell(row=ligne, column=13).value = recette.financeur
+                    ws.cell(row=ligne, column=14).value = recette.antenne
+                    ws.cell(row=ligne, column=15).value = recette.montant
+                    total_code += recette.montant
+                    total_antenne += recette.montant
+                    if recette.regularisation:
+                        log.warning("--> regularisation ligne " +
+                                    str(recette.ligne) + " brouillard " +
+                                    str(recette.CEouBP))
+                        ws.cell(row=ligne, column=19).value = "regularisation"
+                    wrote = True
+                    ligne += 1
+            if wrote:
+                wrote = False
+                ws.cell(row=ligne-1, column=17).value = total_code
+                total_code = 0
+                ligne += 1
+        ws.cell(row=ligne-2, column=18).value = total_antenne
+        total_recettes += total_antenne
+        total_antenne = 0
+        ligne += 1
+    wb.save("DetailsDepensesRecettes_DEBUG.xlsx")
+    log.info("Total depenses = " + str(total_depenses))
+    log.info("Total recettes = " + str(total_recettes))
+    log.info("Total resultat = " + str(total_recettes - total_depenses))
+
+
+antennes = [3969, 4010, 4011, 4012, 4013, 4015, 4016]
+ressources = ["A9031", "A9032", "A9033", "A9034", "A9035", "A9036", "A9030",
+              "A3170", "A9037", "A9038", "A3160", "A3130", "A2040", "A2010",
+              "A2013", "A3030", "A3010", "A9012", "A9011", "A9018"]
+emplois = ["A4012", "A3180", "A3170", "A3082", "A3084", "A3011", "A3012",
+           "A3160", "A3161", "A3162", "A3131", "A3132", "A2041", "A2042",
+           "A2011", "A2012", "A9010", "A9011", "A9012", "A9013", "A9014",
+           "A9015", "A9016", "A9032", "A3030", "21810None", "21810"]
+
+
+if __name__ == '__main__':
+    _logger = ajout_logger()
+    _config = ConfigParser.RawConfigParser()
+    _config.read('brouillards2balance.cfg')
+
+    if _config.getboolean('Balance', 'include_brouillard_CE'):
+        _brouillard_CE = brouillard(_config.get('Brouillard_CE', 'file'), "CE")
+        _brouillard_CE.decipher(_logger, _config.getboolean('Brouillard_CE',
+                                                            'NDI_exist'))
+        if _config.getboolean('Brouillard_CE', 'debug'):
+            create_balance_DEBUG(_config, _brouillard_CE, _logger, "CE")
+
+    if _config.getboolean('Balance', 'include_brouillard_BP'):
+        _brouillard_BP = brouillard(_config.get('Brouillard_BP', 'file'), "BP")
+        _brouillard_BP.decipher(_logger)
+        if _config.getboolean('Brouillard_BP', 'debug'):
+            create_balance_DEBUG(_config, _brouillard_BP, _logger, "BP")
+
+    if _config.getboolean('Balance', 'balance_global_create'):
+        create_balance(_config, _brouillard_CE, _brouillard_BP, _logger)
+
+    if _config.getboolean('DepensesRecettes', 'faire'):
+        create_fichier_detailoperation(_logger, _config, _brouillard_CE,
+                                       _brouillard_BP)
