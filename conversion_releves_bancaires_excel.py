@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 '''
-- conversion des releves bancaires de pdf vers excel
-- converts bank statement from pdf to excel
-
-USAGE :
-$python conversion_releves_bancaires_excel.py bank_statement.pdf
-OUTPUT:
-output.csv
-
 Copyright: Croix-Rouge Francaise 2016 (French Red Cross)
-Author   : Julien Borghetti June 14th 2016
+Author   : Julien Borghetti Sept 2016
 '''
 
 import re
@@ -17,13 +9,30 @@ import sys
 # import ipdb
 import subprocess
 
-print 'INPUT FILE: ', str(sys.argv[1])
-#print cmd
-#cmd = "ps2ascii " + str(sys.argv[1]) + " ps.txt"
-#subprocess.call(cmd, shell=True)
-#print "ps.txt created"
-inputfile = open('ps.txt')
-outputfile = open('output.csv', 'w')
+
+def ecrire_l_aide():
+    print "python conversion_releves_bancaires_excel.py fichier.pdf"
+    print "  1. converti fichier.pdf en releve_bancaire.txt"
+    print "  2. converti releve_bancaire.txt en releve_bancaire.csv"
+    print " "
+    print "python conversion_releves_bancaires_excel.py"
+    print "  1. converti releve_bancaire.txt en releve_bancaire.csv"
+
+try:
+    cmd = "ps2ascii " + str(sys.argv[1]) + " releve_bancaire.txt"
+    print cmd
+    subprocess.call(cmd, shell=True)
+    print "releve_bancaire.txt created"
+except IndexError:
+    pass
+
+try:
+    inputfile = open('releve_bancaire.txt')
+except IOError:
+    print "Le fichier releve_bancaire.txt n'a pas probablement pas encore ete converti"
+    ecrire_l_aide()
+    exit()
+outputfile = open('releve_bancaire.csv', 'w')
 
 my_text = inputfile.readlines()  # [67:] skipping first 66 lines
 
@@ -134,10 +143,15 @@ for line in my_text:
 
         if re.match("VIR SEPA (.+)", transaction.label):
             transaction.type = "VIR SEPA"
-            regex = 'VIR SEPA (.+) ([ \d]+[,]\d\d)\n'
+# Code qui marche avec les milliers
+            regex = 'VIR SEPA (\D+) (\d{0,3}[ ]?\d{1,3},\d\d)\n'
             decouverte = re.search(regex, line)
             transaction.details = decouverte.group(1)
             transaction.montant = decouverte.group(2)
+#           print " "
+#           sys.stdout.write(line)
+#           print decouverte.group(1)
+#           print decouverte.group(2)
             transaction.remove_space_montant()
 
         if re.match("RET DAB (.+)", transaction.label):
@@ -171,8 +185,33 @@ for line in my_text:
             transaction.montant = decouverte.group(2)
             transaction.remove_space_montant()
 
+        if re.match(".*REVERST PRLV", transaction.label): #new
+            transaction.type = "REVERST PRLV"
+            regex = 'REVERST PRLV (.+) ([ \d]+[,]\d\d)\n'
+            decouverte = re.search(regex, line)
+            transaction.details = decouverte.group(1)
+            transaction.montant = decouverte.group(2)
+            transaction.remove_space_montant()
+
+        if re.match(".*ECH PRET", transaction.label): # new
+            transaction.type = "ECH PRET"
+            regex = 'ECH PRET   (.+) ([ \d]+[,]\d\d)\n'
+            decouverte = re.search(regex, line)
+            transaction.details = decouverte.group(1)
+            transaction.montant = decouverte.group(2)
+            transaction.remove_space_montant()
+
+        if re.match(".*VERSEMENT ESPECES", transaction.label): # new
+            transaction.type = "VERSEMENT ESPECES"
+            regex = 'VERSEMENT ESPECES       (.+) ([ \d]+[,]\d\d)\n'
+            decouverte = re.search(regex, line)
+            transaction.details = decouverte.group(1)
+            transaction.montant = decouverte.group(2)
+            transaction.remove_space_montant()
+
         if transaction.type == "INCONNU":
             print "...::: ERREUR :::..."
+            print line
             print "Type de depense inconnu"
             print "--> LABEL = " + transaction.label
             print "--> MONTANT = " + transaction.montant
@@ -231,6 +270,11 @@ for transaction in transaction_list:  # FRAIS FORFAIT ASSOCIATIS 2
         outputfile.writelines(transaction.return_csv_line())
         transaction_written += 1
 
+for transaction in transaction_list:  # ECH PRET
+    if transaction.type == "ECH PRET":
+        outputfile.writelines(transaction.return_csv_line())
+        transaction_written += 1
+
 for transaction in transaction_list:  # DEPOT ESPECES
     if transaction.type == "DEPOT ESPECES":
         outputfile.writelines(transaction.return_csv_line())
@@ -261,4 +305,15 @@ for transaction in transaction_list:  # VERSEMENT CREDIT
         outputfile.writelines(transaction.return_csv_line())
         transaction_written += 1
 
-print "Nb transaction written in output.csv = " + str(transaction_written)
+for transaction in transaction_list:  # REVERST PRLV
+    if transaction.type == "REVERST PRLV":
+        outputfile.writelines(transaction.return_csv_line())
+        transaction_written += 1
+
+for transaction in transaction_list:  # VERSEMENT ESPECES
+    if transaction.type == "VERSEMENT ESPECES":
+        outputfile.writelines(transaction.return_csv_line())
+        transaction_written += 1
+
+
+print "Nb transaction written in releve_bancaire.csv = " + str(transaction_written)
