@@ -190,7 +190,7 @@ class Balance:
         print "........total A9012 = " + str(tmp) + "\n"
 
     def nettoyage_balance(self):
-        l_recettes = range(7, 13)+[16, 22, 24, 25, 26, 28, 31, 34, 36, 37, 38,
+        l_recettes = range(7, 14)+[16, 22, 24, 25, 26, 28, 31, 34, 36, 37, 38,
                                    43, 45, 47, 48, 49, 51, 52, 53]
         for ligne in l_recettes:
             for col in range(3, 11):
@@ -966,8 +966,7 @@ def create_balance(config, brouillard_CE, brouillard_BP, logger):
         logger.warning("==================================================")
 
 
-def create_fichier_detailoperation(log, config, brouillard_CE,
-                                   brouillard_BP):
+def create_fichier_detailoperation(log, config, depenses, recettes):
     log.info('CREATION DU FICHIER DE DEPENSES ET RECETTES')
     # nettoyer excel
     filename = config.get('DepensesRecettes', 'file_in')
@@ -976,11 +975,6 @@ def create_fichier_detailoperation(log, config, brouillard_CE,
     for l in range(9, 1001):
         for c in range(1, 19):
             ws.cell(row=l, column=c).value = None
-    # remplir excel
-    depenses = brouillard_CE.depenses + brouillard_CE.NDI_depenses + \
-        brouillard_BP.depenses + brouillard_BP.NDI_depenses
-    recettes = brouillard_CE.recettes + brouillard_CE.NDI_recettes + \
-        brouillard_BP.recettes + brouillard_BP.NDI_recettes
     '''
     Pour chaque antenne
         pour chaque emplois
@@ -1120,5 +1114,13 @@ if __name__ == '__main__':
         create_balance(_config, _brouillard_CE, _brouillard_BP, _logger)
 
     if _config.getboolean('DepensesRecettes', 'faire'):
-        create_fichier_detailoperation(_logger, _config, _brouillard_CE,
-                                       _brouillard_BP)
+        if _config.getboolean('DepensesRecettes', 'detail_brouillard_CE'):
+            create_fichier_detailoperation(_logger, _config, \
+                    _brouillard_CE.depenses + _brouillard_CE.NDI_depenses, \
+                    _brouillard_CE.recettes + _brouillard_CE.NDI_recettes)
+        if _config.getboolean('DepensesRecettes', 'detail_brouillard_BP'):
+            create_fichier_detailoperation(_logger, _config, \
+                    _brouillard_CE.depenses + _brouillard_CE.NDI_depenses +\
+                    _brouillard_BP.depenses + _brouillard_BP.NDI_depenses, \
+                    _brouillard_CE.recettes + _brouillard_CE.NDI_recettes +\
+                    _brouillard_CE.recettes + _brouillard_CE.NDI_recettes)
