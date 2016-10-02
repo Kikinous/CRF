@@ -10,7 +10,7 @@ Author    : Julien Borghetti 2016
 '''
 
 import openpyxl
-from openpyxl.styles import Style, Font
+from openpyxl.styles import Font
 import subprocess
 import re
 import calendar
@@ -21,6 +21,17 @@ from logging.handlers import RotatingFileHandler
 
 # import ipdb
 # import sys
+
+antennes = [3969, 4010, 4011, 4012, 4013, 4015, 4016]
+ressources = ["A9031", "A9032", "A9033", "A9034", "A9035", "A9036", "A9030",
+              "A3170", "A9037", "A9038", "A3160", "A3130", "A2040", "A2010",
+              "A2013", "A3030", "A3010", "A9012", "A9011", "A9018", "2745",
+              "A9039"]
+emplois = ["A4012", "A3180", "A3170", "A3082", "A3084", "A3011", "A3012",
+           "A3160", "A3161", "A3162", "A3131", "A3132", "A2041", "A2042",
+           "A2011", "A2012", "A9010", "A9011", "A9012", "A9013", "A9014",
+           "A9015", "A9016", "A9032", "A3030", "21810None", "21810"]
+
 
 
 class transaction:
@@ -207,21 +218,9 @@ class Balance:
         - Peuple les depenses
         '''
         for i in range(0, len(liste)):
-            if liste[i].antenne == 4012:
-                column_antenne = 16
-            elif liste[i].antenne == 4011:
-                column_antenne = 15
-            elif liste[i].antenne == 4010:
-                column_antenne = 14
-            elif liste[i].antenne == 3969:
-                column_antenne = 13
-            elif liste[i].antenne == 4013:
-                column_antenne = 17
-            elif liste[i].antenne == 4015:
-                column_antenne = 18
-            elif liste[i].antenne == 4016:
-                column_antenne = 19
-            else:
+            try :
+                column_antenne = int(antennes.index(liste[i].antenne)) + 13
+            except:
                 print "\n ERREUR : Antenne INCONNUE"
                 log.critical("Antenne = " + str(liste[i].antenne))
                 log.critical("brouillard = " + str(liste[i].CEouBP))
@@ -390,7 +389,7 @@ class Balance:
             self.ws.cell(row=52, column=antenne, value=liste[i].montant +
                          self.ws.cell(row=52, column=antenne).value)
         else:
-            log.critical("\n ERREUR : Transaction non traitee")
+            log.critical("\n ERREUR : Transaction depenses non traitee")
             log.critical("brouillard = " + str(liste[i].CEouBP))
             log.critical("code imputation = " + str(liste[i].code))
             log.critical("ligne = " + str(liste[i].ligne))
@@ -401,21 +400,9 @@ class Balance:
         - Peuple les depenses
         '''
         for i in range(0, len(liste)):
-            if liste[i].antenne == 3969:
-                column_antenne = 3
-            elif liste[i].antenne == 4010:
-                column_antenne = 4
-            elif liste[i].antenne == 4011:
-                column_antenne = 5
-            elif liste[i].antenne == 4012:
-                column_antenne = 6
-            elif liste[i].antenne == 4013:
-                column_antenne = 7
-            elif liste[i].antenne == 4015:
-                column_antenne = 8
-            elif liste[i].antenne == 4016:
-                column_antenne = 9
-            else:
+            try :
+                column_antenne = int(antennes.index(liste[i].antenne)) + 3
+            except:
                 log.critical("\n ERREUR: Antenne INCONNUE dans \
                              methode peuple_balance_recettes")
                 log.critical("Antenne = " + str(liste[i].antenne))
@@ -454,7 +441,7 @@ class Balance:
         elif liste[i].code == "A9038":
             val = liste[i].montant+self.ws.cell(row=25, column=antenne).value
             self.ws.cell(row=25, column=antenne, value=val)
-        elif liste[i].code == "A3160":
+        elif liste[i].code == "A9039":
             val = liste[i].montant+self.ws.cell(row=26, column=antenne).value
             self.ws.cell(row=26, column=antenne, value=val)
         elif liste[i].code == "A3130":
@@ -494,7 +481,7 @@ class Balance:
             val = liste[i].montant + self.ws.cell(row=51, column=antenne).value
             self.ws.cell(row=52, column=antenne, value=val)
         else:
-            log.critical("\n ERREUR : Transaction non traitee dans methode" +\
+            log.critical("\n ERREUR : Transaction recette non traitee dans methode" +\
                          " peuple_balance_recettes_antenne")
             log.critical("ligne du brouillard = " + str(liste[i].ligne))
             log.critical("code imputation = " + str(liste[i].code))
@@ -1034,9 +1021,7 @@ def create_fichier_detailoperation(log, config, depenses, recettes):
         ligne += 1
 
     ws.cell(row=ligne, column=1).value = "RECETTES"
-    ws.cell(row=ligne, column=1).style = Style(font=Font(bold=True,
-                                                         name='Arial',
-                                                         size=10))
+    ws.cell(row=ligne, column=1).font  = Font(bold=True, name='Arial', size=10)
     ligne += 1
     wrote = False
     total_code = 0
@@ -1081,15 +1066,6 @@ def create_fichier_detailoperation(log, config, depenses, recettes):
     log.info("Total recettes = " + str(total_recettes))
     log.info("Total resultat = " + str(total_recettes - total_depenses))
 
-
-antennes = [3969, 4010, 4011, 4012, 4013, 4015, 4016]
-ressources = ["A9031", "A9032", "A9033", "A9034", "A9035", "A9036", "A9030",
-              "A3170", "A9037", "A9038", "A3160", "A3130", "A2040", "A2010",
-              "A2013", "A3030", "A3010", "A9012", "A9011", "A9018", "2745"]
-emplois = ["A4012", "A3180", "A3170", "A3082", "A3084", "A3011", "A3012",
-           "A3160", "A3161", "A3162", "A3131", "A3132", "A2041", "A2042",
-           "A2011", "A2012", "A9010", "A9011", "A9012", "A9013", "A9014",
-           "A9015", "A9016", "A9032", "A3030", "21810None", "21810"]
 
 
 if __name__ == '__main__':
