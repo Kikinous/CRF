@@ -465,10 +465,18 @@ class Balance:
             self.ws.cell(row=45, column=antenne, value=val)
         elif liste[i].code == "A9012":
             log.debug("méthode peuple_balance_recettes_antenne")
-            log.warning("--> regularisation depense ligne " +
+            log.warning("--> regularisation A9012 depense ligne " +
                         str(liste[i].ligne) + " brouillard " + liste[i].CEouBP)
             liste[i].log_transaction_debug_light(log)
             val = -liste[i].montant+self.ws.cell(row=39,
+                                                 column=antenne+10).value
+            self.ws.cell(row=39, column=antenne+10, value=val)
+        elif liste[i].code == "A9014":
+            log.debug("méthode peuple_balance_recettes_antenne")
+            log.warning("--> regularisation A9014 depense ligne " +
+                        str(liste[i].ligne) + " brouillard " + liste[i].CEouBP)
+            liste[i].log_transaction_debug_light(log)
+            val = -liste[i].montant+self.ws.cell(row=41,
                                                  column=antenne+10).value
             self.ws.cell(row=39, column=antenne+10, value=val)
         elif liste[i].code == "A9011" or liste[i].code == "A9018":
@@ -485,6 +493,7 @@ class Balance:
             log.critical("\n ERREUR : Transaction recette non traitee dans methode" +\
                          " peuple_balance_recettes_antenne")
             log.critical("ligne du brouillard = " + str(liste[i].ligne))
+            log.critical("brouillard = " + str(liste[i].CEouBP))
             log.critical("code imputation = " + str(liste[i].code))
             exit()
 
