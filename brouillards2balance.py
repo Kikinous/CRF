@@ -6,7 +6,8 @@ USAGE     : $python brouillards2balance.py
 SETUP     : brouillards2balance.cfg
 OUTPUT    : banlance_new.xlsx
 Copyright : Croix-Rouge Francaise 2016 (French Red Cross)
-Author    : Julien Borghetti 2016
+Author    : Julien Borghetti
+Date      : 2016/10/02
 '''
 
 import openpyxl
