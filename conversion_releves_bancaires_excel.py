@@ -126,7 +126,7 @@ for line in my_text:
 
         if re.match("PRLV (\w+)", transaction.label):
             transaction.type = "PRLV"
-            regex = 'PRLV ([ \w]+) ([ \d]+[,]\d\d)\n'
+            regex = 'PRLV ([ \D]+) ([ \d]+[,]\d\d)\n'
             decouverte = re.search(regex, line)
 #           ipdb.set_trace() # BREAKPOINT
             transaction.details = decouverte.group(1)
@@ -209,6 +209,14 @@ for line in my_text:
             transaction.montant = decouverte.group(2)
             transaction.remove_space_montant()
 
+        if re.match("ANNUL[.] REMISE  N[.] (\d+)", transaction.label):
+            transaction.type = "ANNUL. REMISE"
+            regex = 'ANNUL[.] REMISE  N[.] (\d+) ([ \d]+[,]\d\d)\n'
+            decouverte = re.search(regex, line)
+            transaction.details = decouverte.group(1)
+            transaction.montant = decouverte.group(2)
+            transaction.remove_space_montant()
+
         if transaction.type == "INCONNU":
             print "...::: ERREUR :::..."
             print line
@@ -235,6 +243,11 @@ Sortie en fichier csv
 '''
 transaction_written = 0
 
+for transaction in transaction_list:  # INTERETS CREDITEURS
+    if transaction.type == "INTERETS CREDITEURS":
+        outputfile.writelines(transaction.return_csv_line())
+        transaction_written += 1
+
 for transaction in transaction_list:  # DPT VRAC ESP
     if transaction.type == "DPT VRAC ESP":
         outputfile.writelines(transaction.return_csv_line())
@@ -242,6 +255,11 @@ for transaction in transaction_list:  # DPT VRAC ESP
 
 for transaction in transaction_list:  # REMISE CHEQUES
     if transaction.type == "REMISE CHEQUES":
+        outputfile.writelines(transaction.return_csv_line())
+        transaction_written += 1
+
+for transaction in transaction_list:  # ANNUL. REMISE
+    if transaction.type == "ANNUL. REMISE":
         outputfile.writelines(transaction.return_csv_line())
         transaction_written += 1
 
@@ -277,11 +295,6 @@ for transaction in transaction_list:  # ECH PRET
 
 for transaction in transaction_list:  # DEPOT ESPECES
     if transaction.type == "DEPOT ESPECES":
-        outputfile.writelines(transaction.return_csv_line())
-        transaction_written += 1
-
-for transaction in transaction_list:  # INTERETS CREDITEURS
-    if transaction.type == "INTERETS CREDITEURS":
         outputfile.writelines(transaction.return_csv_line())
         transaction_written += 1
 
