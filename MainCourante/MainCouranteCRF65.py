@@ -115,12 +115,12 @@ class GUI_MainCourante_Fenetre(MainCourante_Fenetre):
     def __init__(self):
         MainCourante_Fenetre.__init__(self, None, wx.ID_ANY, "")
     def MetAJour_Victime(self, _victime, ligne):
+        logger.debug("... efface et met à jour victime dans la list_ctrl en ligne : " + str(ligne))
         self.list_ctrl_ListeVictime.DeleteItem(ligne)
-        logger.debug(_victime.Arrivee_HH)
         self.Insere_Victime(_victime,ligne)
     def Insere_Victime(self, _victime,ligne):
         _index = self.list_ctrl_ListeVictime.InsertStringItem(ligne, _victime.Arrivee_HH)
-        logger.debug(_index)
+        logger.debug("... insere victime dans la list_ctrl en ligne : " + str(ligne))
         self.list_ctrl_ListeVictime.SetStringItem(_index, 1, _victime.Arrivee_MM )
         self.list_ctrl_ListeVictime.SetStringItem(_index, 2, _victime.Nom )
         self.list_ctrl_ListeVictime.SetStringItem(_index, 3, _victime.Prenom )
@@ -132,6 +132,7 @@ class GUI_MainCourante_Fenetre(MainCourante_Fenetre):
         gettext.install("DialogVictime")
         DialogVictime = wx.App()
         Liste_Victimes.append(Victime())
+        logger.debug("Ajout de la victime numéro : " + str(len(Liste_Victimes)))
         Liste_Victimes[len(Liste_Victimes)-1].Set_defaut(str(len(Liste_Victimes)))
         Fiche_Victime = GUI_Victime_Edition(Liste_Victimes[len(Liste_Victimes)-1])
         DialogVictime.SetTopWindow(Fiche_Victime)
@@ -164,12 +165,13 @@ class GUI_MainCourante_Fenetre(MainCourante_Fenetre):
         ws = wb.get_sheet_by_name('MainCourante')
         i = 1
         while ws.cell(row=i, column=1).value != None:
-            logger.debug(ws.cell(row=i, column=1).value)
             i += 1
         i -= 2
         logger.debug("Nombre de victime dans le fichier xlsx : " + str(i))
         Liste_Victimes = []
-        for k in range(i-1):
+        logger.debug("Liste_Victimes = []")
+        logger.debug("len(Liste_Victimes) = " + str(len(Liste_Victimes)))
+        for k in range(i):
             Liste_Victimes.append(Victime())
             Liste_Victimes[k].Dossier_num     = unicode(ws.cell(row=k+2, column=1).value)
             Liste_Victimes[k].Arrivee_HH      = unicode(ws.cell(row=k+2, column=2).value)
@@ -184,10 +186,13 @@ class GUI_MainCourante_Fenetre(MainCourante_Fenetre):
             Liste_Victimes[k].Numero_Decharge = unicode(ws.cell(row=k+2, column=11).value)
             Liste_Victimes[k].Depart_HH       = unicode(ws.cell(row=k+2, column=12).value)
             Liste_Victimes[k].Depart_MM       = unicode(ws.cell(row=k+2, column=13).value)
-        for i in range(len(Liste_Victimes)):
-            self.MetAJour_Victime( Liste_Victimes[i], i)
-
-        logger.debug("fin a i = " + str(i))
+        logger.debug("Nombre de victime dans Liste_Victimes : len(Liste_Victimes) = " + str(len(Liste_Victimes)))
+        logger.debug("Nombre d'items dans list_ctrl_Liste à éffacer = " + str(self.list_ctrl_ListeVictime.GetItemCount()))
+        for k in range(self.list_ctrl_ListeVictime.GetItemCount()):
+            self.list_ctrl_ListeVictime.DeleteItem(0)
+        for k in range(len(Liste_Victimes)):
+            self.Insere_Victime(Liste_Victimes[k], k)
+        logger.debug("Nombre d'items dans list_ctrl_Liste inséré = " + str(self.list_ctrl_ListeVictime.GetItemCount()))
         event.Skip()
     def Enregistrer(self, event):  # wxGlade: MainCourante_Fenetre.<event_handler>
         logger.debug("Event handler 'Enregistrer'!")

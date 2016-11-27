@@ -1,0 +1,62 @@
+2016-11-27 14:27:17,488 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 14:27:17,488 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 14:27:17,623 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 14:27:17,623 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 14:27:19,831 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 14:27:19,840 :: DEBUG :: Nombre de victime dans le fichier xlsx : 4
+2016-11-27 14:27:19,840 :: DEBUG :: Liste_Victimes = []
+2016-11-27 14:27:19,840 :: DEBUG :: len(Liste_Victimes) = 0
+2016-11-27 14:27:19,840 :: DEBUG :: Nombre de victime dans Liste_Victimes : len(Liste_Victimes) = 4
+2016-11-27 14:27:19,841 :: DEBUG :: Nombre d'items dans list_ctrl_Liste à éffacer = 2
+2016-11-27 14:27:19,841 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 14:27:19,841 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 14:27:19,841 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 14:27:19,842 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 14:27:19,842 :: DEBUG :: Nombre d'items dans list_ctrl_Liste inséré = 4
+2016-11-27 14:27:21,836 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 14:27:21,837 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 0
+2016-11-27 14:27:21,837 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 14:27:21,837 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 1
+2016-11-27 14:27:21,838 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 14:27:23,301 :: DEBUG :: Event handler 'DoubleClic'
+2016-11-27 14:27:23,301 :: DEBUG :: Selection : 0
+2016-11-27 14:27:23,302 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 14:27:23,320 :: DEBUG :: montrer_victime()
+2016-11-27 14:27:24,849 :: DEBUG :: enregistrer_victime()
+2016-11-27 14:27:24,849 :: DEBUG :: 27
+2016-11-27 14:27:24,849 :: DEBUG :: 
+2016-11-27 14:27:24,849 :: DEBUG :: 
+2016-11-27 14:27:24,850 :: DEBUG :: 
+2016-11-27 14:27:24,850 :: DEBUG :: 
+2016-11-27 14:27:24,850 :: DEBUG :: 
+2016-11-27 14:27:24,850 :: DEBUG :: 
+2016-11-27 14:27:24,850 :: DEBUG :: None
+2016-11-27 14:27:24,850 :: DEBUG :: None
+2016-11-27 14:27:24,850 :: DEBUG :: 
+2016-11-27 14:27:24,850 :: DEBUG :: 
+2016-11-27 14:27:25,708 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 14:27:25,708 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 0
+2016-11-27 14:27:25,709 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 14:27:25,709 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 1
+2016-11-27 14:27:25,709 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 14:27:27,008 :: DEBUG :: Event handler 'DoubleClic'
+2016-11-27 14:27:27,008 :: DEBUG :: Selection : 2
+2016-11-27 14:27:28,251 :: DEBUG :: Event handler 'DoubleClic'
+2016-11-27 14:27:28,251 :: DEBUG :: Selection : 1
+2016-11-27 14:27:28,251 :: DEBUG :: Creation d'une nouvelle fiche pour : Durant
+2016-11-27 14:27:28,264 :: DEBUG :: montrer_victime()
+2016-11-27 14:27:29,628 :: DEBUG :: enregistrer_victime()
+2016-11-27 14:27:29,628 :: DEBUG :: 03
+2016-11-27 14:27:29,628 :: DEBUG :: signaleur
+2016-11-27 14:27:29,629 :: DEBUG :: L.S.P.
+2016-11-27 14:27:29,629 :: DEBUG :: Durant
+2016-11-27 14:27:29,629 :: DEBUG :: Paul
+2016-11-27 14:27:29,629 :: DEBUG :: Tombe a velo
+2016-11-27 14:27:29,629 :: DEBUG :: Desinfection et pansement
+2016-11-27 14:27:29,629 :: DEBUG :: 
+2016-11-27 14:27:29,629 :: DEBUG :: 
+2016-11-27 14:27:29,629 :: DEBUG :: 17
+2016-11-27 14:27:29,629 :: DEBUG :: 10
+2016-11-27 14:27:30,814 :: DEBUG :: Event handler 'DoubleClic'
+2016-11-27 14:27:30,814 :: DEBUG :: Selection : 3
