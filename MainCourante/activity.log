@@ -1,62 +1,1262 @@
-2016-11-27 14:27:17,488 :: INFO :: 
+2016-11-27 17:26:07,246 :: INFO :: 
 START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
-2016-11-27 14:27:17,488 :: DEBUG :: Programme MainCouranteCRF65.py lancé
-2016-11-27 14:27:17,623 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
-2016-11-27 14:27:17,623 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
-2016-11-27 14:27:19,831 :: DEBUG :: Event handler 'Ouvrir'!
-2016-11-27 14:27:19,840 :: DEBUG :: Nombre de victime dans le fichier xlsx : 4
-2016-11-27 14:27:19,840 :: DEBUG :: Liste_Victimes = []
-2016-11-27 14:27:19,840 :: DEBUG :: len(Liste_Victimes) = 0
-2016-11-27 14:27:19,840 :: DEBUG :: Nombre de victime dans Liste_Victimes : len(Liste_Victimes) = 4
-2016-11-27 14:27:19,841 :: DEBUG :: Nombre d'items dans list_ctrl_Liste à éffacer = 2
-2016-11-27 14:27:19,841 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
-2016-11-27 14:27:19,841 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
-2016-11-27 14:27:19,841 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
-2016-11-27 14:27:19,842 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
-2016-11-27 14:27:19,842 :: DEBUG :: Nombre d'items dans list_ctrl_Liste inséré = 4
-2016-11-27 14:27:21,836 :: DEBUG :: Event handler 'Raffraichir' 
-2016-11-27 14:27:21,837 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 0
-2016-11-27 14:27:21,837 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
-2016-11-27 14:27:21,837 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 1
-2016-11-27 14:27:21,838 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
-2016-11-27 14:27:23,301 :: DEBUG :: Event handler 'DoubleClic'
-2016-11-27 14:27:23,301 :: DEBUG :: Selection : 0
-2016-11-27 14:27:23,302 :: DEBUG :: Creation d'une nouvelle fiche pour : 
-2016-11-27 14:27:23,320 :: DEBUG :: montrer_victime()
-2016-11-27 14:27:24,849 :: DEBUG :: enregistrer_victime()
-2016-11-27 14:27:24,849 :: DEBUG :: 27
-2016-11-27 14:27:24,849 :: DEBUG :: 
-2016-11-27 14:27:24,849 :: DEBUG :: 
-2016-11-27 14:27:24,850 :: DEBUG :: 
-2016-11-27 14:27:24,850 :: DEBUG :: 
-2016-11-27 14:27:24,850 :: DEBUG :: 
-2016-11-27 14:27:24,850 :: DEBUG :: 
-2016-11-27 14:27:24,850 :: DEBUG :: None
-2016-11-27 14:27:24,850 :: DEBUG :: None
-2016-11-27 14:27:24,850 :: DEBUG :: 
-2016-11-27 14:27:24,850 :: DEBUG :: 
-2016-11-27 14:27:25,708 :: DEBUG :: Event handler 'Raffraichir' 
-2016-11-27 14:27:25,708 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 0
-2016-11-27 14:27:25,709 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
-2016-11-27 14:27:25,709 :: DEBUG :: ... efface et met à jour victime dans la list_ctrl en ligne : 1
-2016-11-27 14:27:25,709 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
-2016-11-27 14:27:27,008 :: DEBUG :: Event handler 'DoubleClic'
-2016-11-27 14:27:27,008 :: DEBUG :: Selection : 2
-2016-11-27 14:27:28,251 :: DEBUG :: Event handler 'DoubleClic'
-2016-11-27 14:27:28,251 :: DEBUG :: Selection : 1
-2016-11-27 14:27:28,251 :: DEBUG :: Creation d'une nouvelle fiche pour : Durant
-2016-11-27 14:27:28,264 :: DEBUG :: montrer_victime()
-2016-11-27 14:27:29,628 :: DEBUG :: enregistrer_victime()
-2016-11-27 14:27:29,628 :: DEBUG :: 03
-2016-11-27 14:27:29,628 :: DEBUG :: signaleur
-2016-11-27 14:27:29,629 :: DEBUG :: L.S.P.
-2016-11-27 14:27:29,629 :: DEBUG :: Durant
-2016-11-27 14:27:29,629 :: DEBUG :: Paul
-2016-11-27 14:27:29,629 :: DEBUG :: Tombe a velo
-2016-11-27 14:27:29,629 :: DEBUG :: Desinfection et pansement
-2016-11-27 14:27:29,629 :: DEBUG :: 
-2016-11-27 14:27:29,629 :: DEBUG :: 
-2016-11-27 14:27:29,629 :: DEBUG :: 17
-2016-11-27 14:27:29,629 :: DEBUG :: 10
-2016-11-27 14:27:30,814 :: DEBUG :: Event handler 'DoubleClic'
-2016-11-27 14:27:30,814 :: DEBUG :: Selection : 3
+2016-11-27 17:26:07,246 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 17:26:09,649 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 17:26:09,659 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 17:26:09,659 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 17:26:09,659 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 17:26:09,659 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 17:26:09,659 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 17:26:09,660 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 17:26:10,721 :: DEBUG :: Selection ListCtrl ligne numero = 
+2016-11-27 17:26:13,740 :: DEBUG :: Selection ListCtrl ligne numero = 
+2016-11-27 17:27:05,009 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 17:27:05,009 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 17:27:06,143 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 17:27:06,153 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 17:27:06,153 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 17:27:06,153 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 17:27:06,153 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 17:27:06,153 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 17:27:06,154 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 17:27:07,890 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 17:27:08,420 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 17:27:08,975 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 17:27:10,298 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 17:27:10,879 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 17:28:33,912 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 17:28:33,912 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 17:28:35,739 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 17:28:35,748 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 17:28:35,748 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 17:28:35,749 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 17:28:35,749 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 17:28:35,749 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 17:28:35,749 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 17:28:37,076 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 17:28:38,546 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 17:28:39,232 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 17:28:51,527 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 17:28:51,527 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 17:28:53,600 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 17:28:53,610 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 17:28:53,610 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 17:28:53,610 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 17:28:53,610 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 17:28:53,610 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 17:28:53,611 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 17:28:54,569 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 17:28:55,313 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 17:28:56,056 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 17:29:20,003 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 17:29:20,003 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 17:29:22,443 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 17:29:22,453 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 17:29:22,453 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 17:29:22,453 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 17:29:22,453 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 17:29:22,454 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 17:29:22,454 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 17:29:23,345 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 17:29:24,475 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 17:29:27,110 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 17:29:27,935 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 17:29:27,936 :: DEBUG :: Selection : 1
+2016-11-27 17:29:27,936 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom1
+2016-11-27 17:29:27,950 :: DEBUG :: montrer_victime()
+2016-11-27 17:29:34,901 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 17:29:46,476 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 17:29:46,477 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 17:29:48,492 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 17:29:48,501 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 17:29:48,501 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 17:29:48,501 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 17:29:48,501 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 17:29:48,502 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 17:29:48,502 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 17:29:49,997 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 17:29:50,792 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 17:29:51,479 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 17:29:52,803 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 17:29:52,803 :: DEBUG :: Selection : 3
+2016-11-27 17:29:52,804 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom3
+2016-11-27 17:29:52,818 :: DEBUG :: montrer_victime()
+2016-11-27 19:06:45,240 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:06:45,240 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:06:47,376 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:06:47,377 :: DEBUG :: Ajout de la victime numéro : 1
+2016-11-27 19:06:47,377 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:06:47,391 :: DEBUG :: montrer_victime()
+2016-11-27 19:06:48,511 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:06:48,511 :: DEBUG :: 6
+2016-11-27 19:06:48,511 :: DEBUG :: 
+2016-11-27 19:06:48,511 :: DEBUG :: 
+2016-11-27 19:06:48,511 :: DEBUG :: 
+2016-11-27 19:06:48,511 :: DEBUG :: 
+2016-11-27 19:06:48,511 :: DEBUG :: 
+2016-11-27 19:06:48,512 :: DEBUG :: 
+2016-11-27 19:06:48,512 :: DEBUG :: None
+2016-11-27 19:06:48,512 :: DEBUG :: None
+2016-11-27 19:06:48,512 :: DEBUG :: 
+2016-11-27 19:06:48,512 :: DEBUG :: 
+2016-11-27 19:06:50,173 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:06:50,174 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:06:51,080 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:06:51,081 :: DEBUG :: Ajout de la victime numéro : 2
+2016-11-27 19:06:51,081 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:06:51,094 :: DEBUG :: montrer_victime()
+2016-11-27 19:06:52,068 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:06:52,068 :: DEBUG :: 6
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:52,069 :: DEBUG :: None
+2016-11-27 19:06:52,069 :: DEBUG :: None
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:52,069 :: DEBUG :: 
+2016-11-27 19:06:53,270 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:06:53,270 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:06:53,271 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:06:54,001 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:06:54,001 :: DEBUG :: Ajout de la victime numéro : 3
+2016-11-27 19:06:54,002 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:06:54,013 :: DEBUG :: montrer_victime()
+2016-11-27 19:06:54,899 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:06:54,900 :: DEBUG :: 6
+2016-11-27 19:06:54,900 :: DEBUG :: 
+2016-11-27 19:06:54,900 :: DEBUG :: 
+2016-11-27 19:06:54,900 :: DEBUG :: 
+2016-11-27 19:06:54,900 :: DEBUG :: 
+2016-11-27 19:06:54,900 :: DEBUG :: 
+2016-11-27 19:06:54,900 :: DEBUG :: 
+2016-11-27 19:06:54,900 :: DEBUG :: None
+2016-11-27 19:06:54,900 :: DEBUG :: None
+2016-11-27 19:06:54,901 :: DEBUG :: 
+2016-11-27 19:06:54,901 :: DEBUG :: 
+2016-11-27 19:06:56,444 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:06:56,445 :: DEBUG :: Ajout de la victime numéro : 4
+2016-11-27 19:06:56,445 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:06:56,456 :: DEBUG :: montrer_victime()
+2016-11-27 19:06:57,448 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:06:57,449 :: DEBUG :: 6
+2016-11-27 19:06:57,449 :: DEBUG :: 
+2016-11-27 19:06:57,449 :: DEBUG :: 
+2016-11-27 19:06:57,449 :: DEBUG :: 
+2016-11-27 19:06:57,449 :: DEBUG :: 
+2016-11-27 19:06:57,449 :: DEBUG :: 
+2016-11-27 19:06:57,449 :: DEBUG :: 
+2016-11-27 19:06:57,449 :: DEBUG :: None
+2016-11-27 19:06:57,450 :: DEBUG :: None
+2016-11-27 19:06:57,450 :: DEBUG :: 
+2016-11-27 19:06:57,450 :: DEBUG :: 
+2016-11-27 19:06:58,180 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:06:58,181 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:06:58,181 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:06:58,182 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:06:58,182 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:06:59,103 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:06:59,104 :: DEBUG :: Ajout de la victime numéro : 5
+2016-11-27 19:06:59,104 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:06:59,116 :: DEBUG :: montrer_victime()
+2016-11-27 19:06:59,855 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:06:59,855 :: DEBUG :: 6
+2016-11-27 19:06:59,855 :: DEBUG :: 
+2016-11-27 19:06:59,855 :: DEBUG :: 
+2016-11-27 19:06:59,855 :: DEBUG :: 
+2016-11-27 19:06:59,856 :: DEBUG :: 
+2016-11-27 19:06:59,856 :: DEBUG :: 
+2016-11-27 19:06:59,856 :: DEBUG :: 
+2016-11-27 19:06:59,856 :: DEBUG :: None
+2016-11-27 19:06:59,856 :: DEBUG :: None
+2016-11-27 19:06:59,856 :: DEBUG :: 
+2016-11-27 19:06:59,856 :: DEBUG :: 
+2016-11-27 19:07:00,697 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:07:00,698 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:07:00,698 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:07:00,698 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:07:00,699 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:07:00,699 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:07:01,489 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:07:01,490 :: DEBUG :: Ajout de la victime numéro : 6
+2016-11-27 19:07:01,490 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:07:01,502 :: DEBUG :: montrer_victime()
+2016-11-27 19:07:02,523 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:07:02,523 :: DEBUG :: 7
+2016-11-27 19:07:02,523 :: DEBUG :: 
+2016-11-27 19:07:02,523 :: DEBUG :: 
+2016-11-27 19:07:02,523 :: DEBUG :: 
+2016-11-27 19:07:02,523 :: DEBUG :: 
+2016-11-27 19:07:02,524 :: DEBUG :: 
+2016-11-27 19:07:02,524 :: DEBUG :: 
+2016-11-27 19:07:02,524 :: DEBUG :: None
+2016-11-27 19:07:02,524 :: DEBUG :: None
+2016-11-27 19:07:02,524 :: DEBUG :: 
+2016-11-27 19:07:02,524 :: DEBUG :: 
+2016-11-27 19:07:03,299 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:07:03,300 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:07:03,301 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:07:03,301 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:07:03,301 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:07:03,302 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:07:03,302 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 5
+2016-11-27 19:07:04,034 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:07:04,035 :: DEBUG :: Ajout de la victime numéro : 7
+2016-11-27 19:07:04,036 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:07:04,047 :: DEBUG :: montrer_victime()
+2016-11-27 19:07:04,990 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:07:04,991 :: DEBUG :: 7
+2016-11-27 19:07:04,991 :: DEBUG :: 
+2016-11-27 19:07:04,991 :: DEBUG :: 
+2016-11-27 19:07:04,991 :: DEBUG :: 
+2016-11-27 19:07:04,991 :: DEBUG :: 
+2016-11-27 19:07:04,991 :: DEBUG :: 
+2016-11-27 19:07:04,992 :: DEBUG :: 
+2016-11-27 19:07:04,992 :: DEBUG :: None
+2016-11-27 19:07:04,992 :: DEBUG :: None
+2016-11-27 19:07:04,992 :: DEBUG :: 
+2016-11-27 19:07:04,992 :: DEBUG :: 
+2016-11-27 19:07:06,416 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:07:06,417 :: DEBUG :: Ajout de la victime numéro : 8
+2016-11-27 19:07:06,417 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:07:06,429 :: DEBUG :: montrer_victime()
+2016-11-27 19:07:07,364 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:07:07,365 :: DEBUG :: 7
+2016-11-27 19:07:07,365 :: DEBUG :: 
+2016-11-27 19:07:07,365 :: DEBUG :: 
+2016-11-27 19:07:07,365 :: DEBUG :: 
+2016-11-27 19:07:07,365 :: DEBUG :: 
+2016-11-27 19:07:07,365 :: DEBUG :: 
+2016-11-27 19:07:07,365 :: DEBUG :: 
+2016-11-27 19:07:07,365 :: DEBUG :: None
+2016-11-27 19:07:07,365 :: DEBUG :: None
+2016-11-27 19:07:07,366 :: DEBUG :: 
+2016-11-27 19:07:07,366 :: DEBUG :: 
+2016-11-27 19:07:08,239 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:07:08,240 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:07:08,240 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:07:08,241 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:07:08,241 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:07:08,241 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:07:08,241 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 5
+2016-11-27 19:07:08,242 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 6
+2016-11-27 19:07:08,242 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 7
+2016-11-27 19:07:13,261 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:07:13,261 :: DEBUG :: Ajout de la victime numéro : 9
+2016-11-27 19:07:13,262 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:07:13,273 :: DEBUG :: montrer_victime()
+2016-11-27 19:07:14,503 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:07:14,503 :: DEBUG :: 7
+2016-11-27 19:07:14,503 :: DEBUG :: 
+2016-11-27 19:07:14,503 :: DEBUG :: 
+2016-11-27 19:07:14,503 :: DEBUG :: 
+2016-11-27 19:07:14,503 :: DEBUG :: 
+2016-11-27 19:07:14,504 :: DEBUG :: 
+2016-11-27 19:07:14,504 :: DEBUG :: 
+2016-11-27 19:07:14,504 :: DEBUG :: None
+2016-11-27 19:07:14,504 :: DEBUG :: None
+2016-11-27 19:07:14,504 :: DEBUG :: 
+2016-11-27 19:07:14,504 :: DEBUG :: 
+2016-11-27 19:07:16,665 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:07:16,667 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:07:16,667 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:07:16,668 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:07:16,668 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:07:16,668 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:07:16,668 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 5
+2016-11-27 19:07:16,668 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 6
+2016-11-27 19:07:16,669 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 7
+2016-11-27 19:07:16,669 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 8
+2016-11-27 19:07:19,418 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:07:19,419 :: DEBUG :: Ajout de la victime numéro : 10
+2016-11-27 19:07:19,420 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:07:19,431 :: DEBUG :: montrer_victime()
+2016-11-27 19:07:22,928 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:07:22,929 :: DEBUG :: 20
+2016-11-27 19:07:22,929 :: DEBUG :: 
+2016-11-27 19:07:22,929 :: DEBUG :: 
+2016-11-27 19:07:22,929 :: DEBUG :: 
+2016-11-27 19:07:22,929 :: DEBUG :: 
+2016-11-27 19:07:22,929 :: DEBUG :: 
+2016-11-27 19:07:22,929 :: DEBUG :: 
+2016-11-27 19:07:22,930 :: DEBUG :: None
+2016-11-27 19:07:22,930 :: DEBUG :: None
+2016-11-27 19:07:22,930 :: DEBUG :: 
+2016-11-27 19:07:22,930 :: DEBUG :: 
+2016-11-27 19:07:24,305 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:07:24,307 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:07:24,307 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:07:24,307 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:07:24,308 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:07:24,308 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:07:24,308 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 5
+2016-11-27 19:07:24,308 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 6
+2016-11-27 19:07:24,308 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 7
+2016-11-27 19:07:24,309 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 8
+2016-11-27 19:07:24,309 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 9
+2016-11-27 19:07:30,419 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:07:30,420 :: DEBUG :: Ajout de la victime numéro : 11
+2016-11-27 19:07:30,420 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:07:30,432 :: DEBUG :: montrer_victime()
+2016-11-27 19:07:35,178 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:07:35,179 :: DEBUG :: 7
+2016-11-27 19:07:35,179 :: DEBUG :: 
+2016-11-27 19:07:35,179 :: DEBUG :: 
+2016-11-27 19:07:35,179 :: DEBUG :: 
+2016-11-27 19:07:35,179 :: DEBUG :: 
+2016-11-27 19:07:35,179 :: DEBUG :: 
+2016-11-27 19:07:35,179 :: DEBUG :: 
+2016-11-27 19:07:35,180 :: DEBUG :: None
+2016-11-27 19:07:35,180 :: DEBUG :: None
+2016-11-27 19:07:35,180 :: DEBUG :: 
+2016-11-27 19:07:35,180 :: DEBUG :: 
+2016-11-27 19:07:37,091 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:07:37,093 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:07:37,093 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:07:37,093 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:07:37,094 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:07:37,094 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:07:37,094 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 5
+2016-11-27 19:07:37,094 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 6
+2016-11-27 19:07:37,094 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 7
+2016-11-27 19:07:37,095 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 8
+2016-11-27 19:07:37,095 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 9
+2016-11-27 19:07:37,095 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 10
+2016-11-27 19:08:58,333 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:08:58,334 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:09:07,906 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:07,907 :: DEBUG :: Ajout de la victime numéro : 1
+2016-11-27 19:09:07,907 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:07,921 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:09,164 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:09,164 :: DEBUG :: 9
+2016-11-27 19:09:09,164 :: DEBUG :: 
+2016-11-27 19:09:09,164 :: DEBUG :: 
+2016-11-27 19:09:09,164 :: DEBUG :: 
+2016-11-27 19:09:09,165 :: DEBUG :: 
+2016-11-27 19:09:09,165 :: DEBUG :: 
+2016-11-27 19:09:09,165 :: DEBUG :: 
+2016-11-27 19:09:09,165 :: DEBUG :: None
+2016-11-27 19:09:09,165 :: DEBUG :: None
+2016-11-27 19:09:09,165 :: DEBUG :: 
+2016-11-27 19:09:09,165 :: DEBUG :: 
+2016-11-27 19:09:09,957 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:09,958 :: DEBUG :: Ajout de la victime numéro : 2
+2016-11-27 19:09:09,958 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:09,971 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:10,802 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:10,803 :: DEBUG :: 9
+2016-11-27 19:09:10,803 :: DEBUG :: 
+2016-11-27 19:09:10,803 :: DEBUG :: 
+2016-11-27 19:09:10,803 :: DEBUG :: 
+2016-11-27 19:09:10,803 :: DEBUG :: 
+2016-11-27 19:09:10,803 :: DEBUG :: 
+2016-11-27 19:09:10,803 :: DEBUG :: 
+2016-11-27 19:09:10,803 :: DEBUG :: None
+2016-11-27 19:09:10,803 :: DEBUG :: None
+2016-11-27 19:09:10,803 :: DEBUG :: 
+2016-11-27 19:09:10,804 :: DEBUG :: 
+2016-11-27 19:09:11,693 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:11,694 :: DEBUG :: Ajout de la victime numéro : 3
+2016-11-27 19:09:11,694 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:11,706 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:12,534 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:12,535 :: DEBUG :: 9
+2016-11-27 19:09:12,535 :: DEBUG :: 
+2016-11-27 19:09:12,535 :: DEBUG :: 
+2016-11-27 19:09:12,535 :: DEBUG :: 
+2016-11-27 19:09:12,535 :: DEBUG :: 
+2016-11-27 19:09:12,535 :: DEBUG :: 
+2016-11-27 19:09:12,535 :: DEBUG :: 
+2016-11-27 19:09:12,536 :: DEBUG :: None
+2016-11-27 19:09:12,536 :: DEBUG :: None
+2016-11-27 19:09:12,536 :: DEBUG :: 
+2016-11-27 19:09:12,536 :: DEBUG :: 
+2016-11-27 19:09:13,360 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:09:13,361 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:09:13,361 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:09:13,361 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:09:14,014 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:14,015 :: DEBUG :: Ajout de la victime numéro : 4
+2016-11-27 19:09:14,015 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:14,026 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:14,868 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:14,868 :: DEBUG :: 9
+2016-11-27 19:09:14,868 :: DEBUG :: 
+2016-11-27 19:09:14,869 :: DEBUG :: 
+2016-11-27 19:09:14,869 :: DEBUG :: 
+2016-11-27 19:09:14,869 :: DEBUG :: 
+2016-11-27 19:09:14,869 :: DEBUG :: 
+2016-11-27 19:09:14,869 :: DEBUG :: 
+2016-11-27 19:09:14,869 :: DEBUG :: None
+2016-11-27 19:09:14,869 :: DEBUG :: None
+2016-11-27 19:09:14,869 :: DEBUG :: 
+2016-11-27 19:09:14,869 :: DEBUG :: 
+2016-11-27 19:09:15,783 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:15,784 :: DEBUG :: Ajout de la victime numéro : 5
+2016-11-27 19:09:15,784 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:15,796 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:16,845 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:16,845 :: DEBUG :: 9
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:16,846 :: DEBUG :: None
+2016-11-27 19:09:16,846 :: DEBUG :: None
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:16,846 :: DEBUG :: 
+2016-11-27 19:09:17,557 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:17,558 :: DEBUG :: Ajout de la victime numéro : 6
+2016-11-27 19:09:17,558 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:17,569 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:18,382 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:18,382 :: DEBUG :: 9
+2016-11-27 19:09:18,382 :: DEBUG :: 
+2016-11-27 19:09:18,382 :: DEBUG :: 
+2016-11-27 19:09:18,382 :: DEBUG :: 
+2016-11-27 19:09:18,383 :: DEBUG :: 
+2016-11-27 19:09:18,383 :: DEBUG :: 
+2016-11-27 19:09:18,383 :: DEBUG :: 
+2016-11-27 19:09:18,383 :: DEBUG :: None
+2016-11-27 19:09:18,383 :: DEBUG :: None
+2016-11-27 19:09:18,383 :: DEBUG :: 
+2016-11-27 19:09:18,383 :: DEBUG :: 
+2016-11-27 19:09:19,219 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:09:19,220 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:09:19,221 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:09:19,221 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:09:19,221 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:09:19,222 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:09:19,222 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 5
+2016-11-27 19:09:20,093 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:20,094 :: DEBUG :: Ajout de la victime numéro : 7
+2016-11-27 19:09:20,094 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:20,106 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:21,393 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:21,393 :: DEBUG :: 9
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:21,394 :: DEBUG :: None
+2016-11-27 19:09:21,394 :: DEBUG :: None
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:21,394 :: DEBUG :: 
+2016-11-27 19:09:22,121 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:09:22,122 :: DEBUG :: Ajout de la victime numéro : 8
+2016-11-27 19:09:22,122 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:09:22,135 :: DEBUG :: montrer_victime()
+2016-11-27 19:09:23,003 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:09:23,003 :: DEBUG :: 9
+2016-11-27 19:09:23,003 :: DEBUG :: 
+2016-11-27 19:09:23,004 :: DEBUG :: 
+2016-11-27 19:09:23,004 :: DEBUG :: 
+2016-11-27 19:09:23,004 :: DEBUG :: 
+2016-11-27 19:09:23,004 :: DEBUG :: 
+2016-11-27 19:09:23,004 :: DEBUG :: 
+2016-11-27 19:09:23,004 :: DEBUG :: None
+2016-11-27 19:09:23,004 :: DEBUG :: None
+2016-11-27 19:09:23,004 :: DEBUG :: 
+2016-11-27 19:09:23,004 :: DEBUG :: 
+2016-11-27 19:09:23,845 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:09:23,846 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:09:23,846 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:09:23,847 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:09:23,847 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:09:23,847 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:09:23,848 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 5
+2016-11-27 19:09:23,848 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 6
+2016-11-27 19:09:23,848 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 7
+2016-11-27 19:09:30,623 :: DEBUG :: Selection ListCtrl ligne numero = 6
+2016-11-27 19:12:18,856 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:12:18,856 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:13:09,811 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:13:09,811 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:13:27,540 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:13:27,540 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:13:43,786 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:13:43,786 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:19:59,458 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:19:59,458 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:21:01,705 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:21:01,705 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:28:05,496 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:28:05,496 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:29:31,898 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:29:31,898 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:31:08,283 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:31:08,283 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:32:30,076 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:32:30,076 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:33:08,470 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:33:08,470 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:33:19,619 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 19:33:19,630 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 19:33:19,630 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 19:33:19,630 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 19:33:19,630 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:33:19,631 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:33:19,631 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:33:45,049 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:33:45,050 :: DEBUG :: Ajout de la victime numéro : 4
+2016-11-27 19:33:45,050 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:33:45,064 :: DEBUG :: montrer_victime()
+2016-11-27 19:33:51,361 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:33:51,362 :: DEBUG :: Ajout de la victime numéro : 5
+2016-11-27 19:33:51,362 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:33:51,375 :: DEBUG :: montrer_victime()
+2016-11-27 19:33:57,652 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:33:57,652 :: DEBUG :: 34
+2016-11-27 19:33:57,652 :: DEBUG :: 
+2016-11-27 19:33:57,653 :: DEBUG :: 
+2016-11-27 19:33:57,653 :: DEBUG :: 
+2016-11-27 19:33:57,653 :: DEBUG :: 
+2016-11-27 19:33:57,653 :: DEBUG :: 
+2016-11-27 19:33:57,653 :: DEBUG :: 
+2016-11-27 19:33:57,653 :: DEBUG :: None
+2016-11-27 19:33:57,653 :: DEBUG :: None
+2016-11-27 19:33:57,653 :: DEBUG :: 
+2016-11-27 19:33:57,653 :: DEBUG :: 
+2016-11-27 19:34:01,155 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:34:01,155 :: DEBUG :: 33
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:01,156 :: DEBUG :: None
+2016-11-27 19:34:01,156 :: DEBUG :: None
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:01,156 :: DEBUG :: 
+2016-11-27 19:34:02,651 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:34:02,652 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:34:02,653 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:34:02,653 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:34:02,654 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:34:02,654 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 4
+2016-11-27 19:34:17,296 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:34:17,297 :: DEBUG :: Ajout de la victime numéro : 6
+2016-11-27 19:34:17,297 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:34:17,309 :: DEBUG :: montrer_victime()
+2016-11-27 19:34:17,770 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:34:17,771 :: DEBUG :: Ajout de la victime numéro : 7
+2016-11-27 19:34:17,771 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:34:17,783 :: DEBUG :: montrer_victime()
+2016-11-27 19:35:25,515 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:35:25,515 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:35:30,549 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:35:30,550 :: DEBUG :: Ajout de la victime numéro : 1
+2016-11-27 19:35:30,550 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:35:30,574 :: DEBUG :: montrer_victime()
+2016-11-27 19:35:53,577 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:35:53,577 :: DEBUG :: 35
+2016-11-27 19:35:53,577 :: DEBUG :: Signaleurs
+2016-11-27 19:35:53,577 :: DEBUG :: 
+2016-11-27 19:35:53,577 :: DEBUG :: Nom1
+2016-11-27 19:35:53,577 :: DEBUG :: Prenom1
+2016-11-27 19:35:53,577 :: DEBUG :: Chute Velo
+2016-11-27 19:35:53,578 :: DEBUG :: 
+2016-11-27 19:35:53,578 :: DEBUG :: None
+2016-11-27 19:35:53,578 :: DEBUG :: None
+2016-11-27 19:35:53,578 :: DEBUG :: 
+2016-11-27 19:35:53,578 :: DEBUG :: 
+2016-11-27 19:35:55,032 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:35:55,032 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:35:57,339 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:35:57,341 :: DEBUG :: Ajout de la victime numéro : 2
+2016-11-27 19:35:57,341 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:35:57,364 :: DEBUG :: montrer_victime()
+2016-11-27 19:36:35,752 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:36:35,753 :: DEBUG :: Ajout de la victime numéro : 3
+2016-11-27 19:36:35,753 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:36:35,770 :: DEBUG :: montrer_victime()
+2016-11-27 19:37:16,348 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:37:16,349 :: DEBUG :: 36
+2016-11-27 19:37:16,349 :: DEBUG :: Présentation spontannée
+2016-11-27 19:37:16,349 :: DEBUG :: 
+2016-11-27 19:37:16,349 :: DEBUG :: Nom3
+2016-11-27 19:37:16,349 :: DEBUG :: Prenom3
+2016-11-27 19:37:16,349 :: DEBUG :: Tombée amoureuse de Jean-Claude
+2016-11-27 19:37:16,349 :: DEBUG :: Soutien Psy (deux baffes)
+2016-11-27 19:37:16,349 :: DEBUG :: None
+2016-11-27 19:37:16,349 :: DEBUG :: None
+2016-11-27 19:37:16,349 :: DEBUG :: 
+2016-11-27 19:37:16,349 :: DEBUG :: 
+2016-11-27 19:37:17,785 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:37:17,785 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:37:17,786 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:37:17,786 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:37:21,000 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:37:21,001 :: DEBUG :: 35
+2016-11-27 19:37:21,001 :: DEBUG :: Présentation spontannée
+2016-11-27 19:37:21,001 :: DEBUG :: 
+2016-11-27 19:37:21,002 :: DEBUG :: Nom2
+2016-11-27 19:37:21,002 :: DEBUG :: Prenom2
+2016-11-27 19:37:21,002 :: DEBUG :: Malaise arrivée de la course. 
+2016-11-27 19:37:21,002 :: DEBUG :: Repos..
+2016-11-27 19:37:21,002 :: DEBUG :: None
+2016-11-27 19:37:21,002 :: DEBUG :: None
+2016-11-27 19:37:21,002 :: DEBUG :: 
+2016-11-27 19:37:21,002 :: DEBUG :: 
+2016-11-27 19:37:22,760 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:37:22,762 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:37:22,762 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:37:22,762 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:37:24,732 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 19:37:25,947 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:37:25,947 :: DEBUG :: Selection : 2
+2016-11-27 19:37:25,948 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom2
+2016-11-27 19:37:25,969 :: DEBUG :: montrer_victime()
+2016-11-27 19:37:33,137 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 19:37:34,635 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:37:34,635 :: DEBUG :: Selection : 1
+2016-11-27 19:37:34,636 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom1
+2016-11-27 19:37:34,655 :: DEBUG :: montrer_victime()
+2016-11-27 19:37:56,687 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:37:56,687 :: DEBUG :: 35
+2016-11-27 19:37:56,687 :: DEBUG :: Signaleurs
+2016-11-27 19:37:56,687 :: DEBUG :: 
+2016-11-27 19:37:56,687 :: DEBUG :: Nom1
+2016-11-27 19:37:56,687 :: DEBUG :: Prenom1
+2016-11-27 19:37:56,687 :: DEBUG :: Chute Velo
+2016-11-27 19:37:56,687 :: DEBUG :: Aseption + pansements.
+2016-11-27 19:37:56,687 :: DEBUG :: None
+2016-11-27 19:37:56,688 :: DEBUG :: None
+2016-11-27 19:37:56,688 :: DEBUG :: 19
+2016-11-27 19:37:56,688 :: DEBUG :: 37
+2016-11-27 19:37:58,913 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:37:58,916 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:37:58,916 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:37:58,916 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:38:09,837 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 19:38:10,972 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:38:10,972 :: DEBUG :: Selection : 3
+2016-11-27 19:38:10,973 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom3
+2016-11-27 19:38:10,994 :: DEBUG :: montrer_victime()
+2016-11-27 19:38:31,094 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:38:31,094 :: DEBUG :: 36
+2016-11-27 19:38:31,095 :: DEBUG :: Présentation spontannée
+2016-11-27 19:38:31,095 :: DEBUG :: 
+2016-11-27 19:38:31,095 :: DEBUG :: Nom3
+2016-11-27 19:38:31,095 :: DEBUG :: Prenom3
+2016-11-27 19:38:31,095 :: DEBUG :: Tombée amoureuse de Jean-Claude
+2016-11-27 19:38:31,095 :: DEBUG :: Soutien Psy (deux baffes). Ca marche.
+2016-11-27 19:38:31,095 :: DEBUG :: None
+2016-11-27 19:38:31,096 :: DEBUG :: None
+2016-11-27 19:38:31,096 :: DEBUG :: 19
+2016-11-27 19:38:31,096 :: DEBUG :: 38
+2016-11-27 19:38:33,194 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:38:33,196 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:38:33,196 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:38:33,197 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:38:37,062 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:38:41,061 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:38:41,061 :: DEBUG :: 35
+2016-11-27 19:38:41,061 :: DEBUG :: Présentation spontannée
+2016-11-27 19:38:41,061 :: DEBUG :: 
+2016-11-27 19:38:41,061 :: DEBUG :: Nom2
+2016-11-27 19:38:41,061 :: DEBUG :: Prenom2
+2016-11-27 19:38:41,061 :: DEBUG :: Malaise arrivée de la course. 
+2016-11-27 19:38:41,062 :: DEBUG :: Repos..
+2016-11-27 19:38:41,062 :: DEBUG :: None
+2016-11-27 19:38:41,062 :: DEBUG :: None
+2016-11-27 19:38:41,062 :: DEBUG :: 
+2016-11-27 19:38:41,062 :: DEBUG :: 
+2016-11-27 19:38:42,059 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:38:53,400 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:38:53,400 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:38:55,319 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 19:38:55,334 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 19:38:55,334 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 19:38:55,334 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 19:38:55,334 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:38:55,335 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:38:55,335 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:38:58,125 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 19:38:59,344 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:38:59,345 :: DEBUG :: Selection : 2
+2016-11-27 19:38:59,345 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom2
+2016-11-27 19:38:59,369 :: DEBUG :: montrer_victime()
+2016-11-27 19:39:14,724 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:39:14,725 :: DEBUG :: 35
+2016-11-27 19:39:14,725 :: DEBUG :: Présentation spontannée
+2016-11-27 19:39:14,726 :: DEBUG :: None
+2016-11-27 19:39:14,726 :: DEBUG :: Nom2
+2016-11-27 19:39:14,726 :: DEBUG :: Prenom2
+2016-11-27 19:39:14,726 :: DEBUG :: Malaise arrivée de la course. 
+2016-11-27 19:39:14,726 :: DEBUG :: Repos.. TA stabilisée. 
+2016-11-27 19:39:14,727 :: DEBUG :: None
+2016-11-27 19:39:14,727 :: DEBUG :: None
+2016-11-27 19:39:14,727 :: DEBUG :: 19
+2016-11-27 19:39:14,727 :: DEBUG :: 40
+2016-11-27 19:39:17,400 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:39:17,402 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:39:17,403 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:39:17,404 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:39:18,078 :: DEBUG :: Event handler 'Effacer' 
+2016-11-27 19:39:18,078 :: DEBUG :: Effacer ligne : 2
+2016-11-27 19:39:18,081 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:39:18,082 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:39:19,239 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:40:19,570 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:40:19,570 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:40:26,768 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:40:26,770 :: DEBUG :: Ajout de la victime numéro : 1
+2016-11-27 19:40:26,771 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:40:26,795 :: DEBUG :: montrer_victime()
+2016-11-27 19:40:51,553 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:40:51,554 :: DEBUG :: 40
+2016-11-27 19:40:51,555 :: DEBUG :: 
+2016-11-27 19:40:51,555 :: DEBUG :: 
+2016-11-27 19:40:51,555 :: DEBUG :: Nom1
+2016-11-27 19:40:51,555 :: DEBUG :: 
+2016-11-27 19:40:51,555 :: DEBUG :: Chute en Vélo
+2016-11-27 19:40:51,555 :: DEBUG :: aseptie + pansements
+2016-11-27 19:40:51,555 :: DEBUG :: None
+2016-11-27 19:40:51,555 :: DEBUG :: None
+2016-11-27 19:40:51,555 :: DEBUG :: 
+2016-11-27 19:40:51,555 :: DEBUG :: 
+2016-11-27 19:40:52,989 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:40:52,990 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:40:56,798 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:40:56,799 :: DEBUG :: Ajout de la victime numéro : 2
+2016-11-27 19:40:56,799 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:40:56,819 :: DEBUG :: montrer_victime()
+2016-11-27 19:41:01,927 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:41:01,928 :: DEBUG :: Ajout de la victime numéro : 3
+2016-11-27 19:41:01,929 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:41:01,949 :: DEBUG :: montrer_victime()
+2016-11-27 19:41:56,384 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:41:56,385 :: DEBUG :: 41
+2016-11-27 19:41:56,385 :: DEBUG :: 
+2016-11-27 19:41:56,385 :: DEBUG :: 
+2016-11-27 19:41:56,386 :: DEBUG :: Nom3
+2016-11-27 19:41:56,386 :: DEBUG :: 
+2016-11-27 19:41:56,386 :: DEBUG :: tombée amoureuse de julien
+2016-11-27 19:41:56,386 :: DEBUG :: Soutien Psy (2 baffes)
+2016-11-27 19:41:56,386 :: DEBUG :: None
+2016-11-27 19:41:56,386 :: DEBUG :: None
+2016-11-27 19:41:56,386 :: DEBUG :: 
+2016-11-27 19:41:56,386 :: DEBUG :: 
+2016-11-27 19:41:58,822 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:41:58,822 :: DEBUG :: 40
+2016-11-27 19:41:58,822 :: DEBUG :: 
+2016-11-27 19:41:58,822 :: DEBUG :: 
+2016-11-27 19:41:58,822 :: DEBUG :: Nom2
+2016-11-27 19:41:58,822 :: DEBUG :: 
+2016-11-27 19:41:58,823 :: DEBUG :: perte de connaissance passagère à l'arrivée de la course
+2016-11-27 19:41:58,823 :: DEBUG :: repos 19:41
+2016-11-27 19:41:58,823 :: DEBUG :: None
+2016-11-27 19:41:58,823 :: DEBUG :: None
+2016-11-27 19:41:58,823 :: DEBUG :: 
+2016-11-27 19:41:58,823 :: DEBUG :: 
+2016-11-27 19:41:59,755 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:41:59,756 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:41:59,757 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:41:59,758 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:42:02,888 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:42:09,209 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:42:09,210 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:42:10,934 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 19:42:10,947 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 19:42:10,947 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 19:42:10,948 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 19:42:10,948 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:42:10,948 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:42:10,949 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:42:14,016 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 19:42:15,316 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:42:15,317 :: DEBUG :: Selection : 3
+2016-11-27 19:42:15,317 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom3
+2016-11-27 19:42:15,342 :: DEBUG :: montrer_victime()
+2016-11-27 19:42:21,689 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:42:21,690 :: DEBUG :: 41
+2016-11-27 19:42:21,690 :: DEBUG :: None
+2016-11-27 19:42:21,690 :: DEBUG :: None
+2016-11-27 19:42:21,690 :: DEBUG :: Nom3
+2016-11-27 19:42:21,690 :: DEBUG :: None
+2016-11-27 19:42:21,690 :: DEBUG :: tombée amoureuse de julien
+2016-11-27 19:42:21,690 :: DEBUG :: Soutien Psy (2 baffes)
+2016-11-27 19:42:21,691 :: DEBUG :: None
+2016-11-27 19:42:21,691 :: DEBUG :: None
+2016-11-27 19:42:21,691 :: DEBUG :: 19
+2016-11-27 19:42:21,691 :: DEBUG :: 42
+2016-11-27 19:42:23,190 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:42:23,192 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:42:23,192 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:42:23,193 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:42:24,556 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 19:42:25,935 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:42:25,935 :: DEBUG :: Selection : 1
+2016-11-27 19:42:25,935 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom1
+2016-11-27 19:42:25,956 :: DEBUG :: montrer_victime()
+2016-11-27 19:42:33,217 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:42:33,218 :: DEBUG :: 40
+2016-11-27 19:42:33,218 :: DEBUG :: None
+2016-11-27 19:42:33,218 :: DEBUG :: None
+2016-11-27 19:42:33,218 :: DEBUG :: Nom1
+2016-11-27 19:42:33,218 :: DEBUG :: None
+2016-11-27 19:42:33,218 :: DEBUG :: Chute en Vélo
+2016-11-27 19:42:33,218 :: DEBUG :: aseptie + pansements
+2016-11-27 19:42:33,219 :: DEBUG :: None
+2016-11-27 19:42:33,219 :: DEBUG :: None
+2016-11-27 19:42:33,219 :: DEBUG :: 19
+2016-11-27 19:42:33,219 :: DEBUG :: 42
+2016-11-27 19:42:34,403 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 19:42:35,554 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:42:35,554 :: DEBUG :: Selection : 2
+2016-11-27 19:42:35,555 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom2
+2016-11-27 19:42:35,575 :: DEBUG :: montrer_victime()
+2016-11-27 19:42:43,696 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:42:43,696 :: DEBUG :: 40
+2016-11-27 19:42:43,696 :: DEBUG :: None
+2016-11-27 19:42:43,697 :: DEBUG :: None
+2016-11-27 19:42:43,697 :: DEBUG :: Nom2
+2016-11-27 19:42:43,697 :: DEBUG :: None
+2016-11-27 19:42:43,697 :: DEBUG :: perte de connaissance passagère à l'arrivée de la course
+2016-11-27 19:42:43,697 :: DEBUG :: repos 19:41
+2016-11-27 19:42:43,697 :: DEBUG :: None
+2016-11-27 19:42:43,697 :: DEBUG :: None
+2016-11-27 19:42:43,697 :: DEBUG :: 19
+2016-11-27 19:42:43,698 :: DEBUG :: 43
+2016-11-27 19:42:44,747 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:42:44,748 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:42:44,749 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:42:44,750 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:42:47,377 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:43:22,152 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:43:22,152 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:43:24,056 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:43:24,057 :: DEBUG :: Ajout de la victime numéro : 1
+2016-11-27 19:43:24,058 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:43:24,083 :: DEBUG :: montrer_victime()
+2016-11-27 19:43:40,820 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:43:40,821 :: DEBUG :: 43
+2016-11-27 19:43:40,821 :: DEBUG :: signaleurs radio
+2016-11-27 19:43:40,821 :: DEBUG :: 
+2016-11-27 19:43:40,821 :: DEBUG :: Nom1
+2016-11-27 19:43:40,821 :: DEBUG :: 
+2016-11-27 19:43:40,821 :: DEBUG :: Chute en vélo
+2016-11-27 19:43:40,821 :: DEBUG :: aseptie
+2016-11-27 19:43:40,821 :: DEBUG :: None
+2016-11-27 19:43:40,821 :: DEBUG :: None
+2016-11-27 19:43:40,821 :: DEBUG :: 
+2016-11-27 19:43:40,822 :: DEBUG :: 
+2016-11-27 19:43:42,117 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:43:42,117 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:43:44,804 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:43:44,804 :: DEBUG :: Ajout de la victime numéro : 2
+2016-11-27 19:43:44,804 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:43:44,825 :: DEBUG :: montrer_victime()
+2016-11-27 19:43:48,151 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:43:48,152 :: DEBUG :: Ajout de la victime numéro : 3
+2016-11-27 19:43:48,153 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:43:48,172 :: DEBUG :: montrer_victime()
+2016-11-27 19:44:35,217 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:44:35,218 :: DEBUG :: 43
+2016-11-27 19:44:35,218 :: DEBUG :: 
+2016-11-27 19:44:35,218 :: DEBUG :: 
+2016-11-27 19:44:35,218 :: DEBUG :: 
+2016-11-27 19:44:35,218 :: DEBUG :: 
+2016-11-27 19:44:35,218 :: DEBUG :: Tombée amoureuse de Jean-Claude
+2016-11-27 19:44:35,218 :: DEBUG :: Un chambre d'hotel
+2016-11-27 19:44:35,218 :: DEBUG :: None
+2016-11-27 19:44:35,218 :: DEBUG :: None
+2016-11-27 19:44:35,219 :: DEBUG :: 
+2016-11-27 19:44:35,219 :: DEBUG :: 
+2016-11-27 19:44:37,767 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:44:37,768 :: DEBUG :: 43
+2016-11-27 19:44:37,768 :: DEBUG :: 
+2016-11-27 19:44:37,768 :: DEBUG :: 
+2016-11-27 19:44:37,769 :: DEBUG :: Nom2
+2016-11-27 19:44:37,769 :: DEBUG :: 
+2016-11-27 19:44:37,769 :: DEBUG :: Tombé amoureuse de Jacques
+2016-11-27 19:44:37,769 :: DEBUG :: deux baffes
+2016-11-27 19:44:37,769 :: DEBUG :: None
+2016-11-27 19:44:37,769 :: DEBUG :: None
+2016-11-27 19:44:37,769 :: DEBUG :: 
+2016-11-27 19:44:37,770 :: DEBUG :: 
+2016-11-27 19:44:38,907 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:44:38,908 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:44:38,908 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:44:38,909 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:44:41,019 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 19:44:42,005 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:44:42,005 :: DEBUG :: Selection : 1
+2016-11-27 19:44:42,005 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom1
+2016-11-27 19:44:42,026 :: DEBUG :: montrer_victime()
+2016-11-27 19:44:51,615 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:44:51,616 :: DEBUG :: 43
+2016-11-27 19:44:51,616 :: DEBUG :: signaleurs radio
+2016-11-27 19:44:51,616 :: DEBUG :: 
+2016-11-27 19:44:51,616 :: DEBUG :: Nom1
+2016-11-27 19:44:51,616 :: DEBUG :: 
+2016-11-27 19:44:51,617 :: DEBUG :: Chute en vélo
+2016-11-27 19:44:51,617 :: DEBUG :: aseptie + pansements
+2016-11-27 19:44:51,617 :: DEBUG :: None
+2016-11-27 19:44:51,617 :: DEBUG :: None
+2016-11-27 19:44:51,617 :: DEBUG :: 19
+2016-11-27 19:44:51,617 :: DEBUG :: 44
+2016-11-27 19:44:52,458 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:44:54,958 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:44:54,959 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:44:54,960 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:44:54,960 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:44:58,994 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:44:58,994 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:45:00,473 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 19:45:00,486 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 19:45:00,486 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 19:45:00,487 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 19:45:00,487 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:45:00,488 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:45:00,488 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:45:02,992 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 19:45:03,911 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:45:03,911 :: DEBUG :: Selection : 2
+2016-11-27 19:45:03,912 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom2
+2016-11-27 19:45:03,936 :: DEBUG :: montrer_victime()
+2016-11-27 19:45:11,993 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:45:11,994 :: DEBUG :: 43
+2016-11-27 19:45:11,994 :: DEBUG :: None
+2016-11-27 19:45:11,994 :: DEBUG :: None
+2016-11-27 19:45:11,994 :: DEBUG :: Nom2
+2016-11-27 19:45:11,995 :: DEBUG :: None
+2016-11-27 19:45:11,995 :: DEBUG :: Tombé amoureuse de Jacques
+2016-11-27 19:45:11,995 :: DEBUG :: deux baffes
+2016-11-27 19:45:11,995 :: DEBUG :: None
+2016-11-27 19:45:11,995 :: DEBUG :: None
+2016-11-27 19:45:11,995 :: DEBUG :: 19
+2016-11-27 19:45:11,995 :: DEBUG :: 45
+2016-11-27 19:45:13,682 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:45:13,685 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:45:13,686 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:45:13,686 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:45:16,223 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:46:16,148 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:46:16,148 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:46:19,727 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:46:19,728 :: DEBUG :: Ajout de la victime numéro : 1
+2016-11-27 19:46:19,728 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:46:19,742 :: DEBUG :: montrer_victime()
+2016-11-27 19:46:40,190 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:46:40,191 :: DEBUG :: 46
+2016-11-27 19:46:40,191 :: DEBUG :: signaluers : chute vélo
+2016-11-27 19:46:40,191 :: DEBUG :: 
+2016-11-27 19:46:40,191 :: DEBUG :: Nom1
+2016-11-27 19:46:40,191 :: DEBUG :: 
+2016-11-27 19:46:40,191 :: DEBUG :: chute au virage à 10km/h
+2016-11-27 19:46:40,191 :: DEBUG :: 
+2016-11-27 19:46:40,191 :: DEBUG :: None
+2016-11-27 19:46:40,191 :: DEBUG :: None
+2016-11-27 19:46:40,192 :: DEBUG :: 
+2016-11-27 19:46:40,192 :: DEBUG :: 
+2016-11-27 19:46:43,032 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:46:43,033 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:46:44,804 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:46:44,805 :: DEBUG :: Ajout de la victime numéro : 2
+2016-11-27 19:46:44,806 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:46:44,822 :: DEBUG :: montrer_victime()
+2016-11-27 19:46:47,841 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:46:47,842 :: DEBUG :: Ajout de la victime numéro : 3
+2016-11-27 19:46:47,842 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:46:47,854 :: DEBUG :: montrer_victime()
+2016-11-27 19:47:24,130 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:47:24,130 :: DEBUG :: 46
+2016-11-27 19:47:24,130 :: DEBUG :: 
+2016-11-27 19:47:24,130 :: DEBUG :: 
+2016-11-27 19:47:24,130 :: DEBUG :: Nom3
+2016-11-27 19:47:24,130 :: DEBUG :: 
+2016-11-27 19:47:24,131 :: DEBUG :: Vue Jean-Claude et tombe amoureuse
+2016-11-27 19:47:24,131 :: DEBUG :: Une chmabre d'hotel
+2016-11-27 19:47:24,131 :: DEBUG :: None
+2016-11-27 19:47:24,131 :: DEBUG :: None
+2016-11-27 19:47:24,131 :: DEBUG :: 
+2016-11-27 19:47:24,131 :: DEBUG :: 
+2016-11-27 19:47:25,838 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:47:25,838 :: DEBUG :: 46
+2016-11-27 19:47:25,838 :: DEBUG :: 
+2016-11-27 19:47:25,838 :: DEBUG :: 
+2016-11-27 19:47:25,838 :: DEBUG :: Nom2
+2016-11-27 19:47:25,838 :: DEBUG :: 
+2016-11-27 19:47:25,838 :: DEBUG :: Vue Jacque et tombe amoureuse
+2016-11-27 19:47:25,839 :: DEBUG :: 2 baffes
+2016-11-27 19:47:25,839 :: DEBUG :: None
+2016-11-27 19:47:25,839 :: DEBUG :: None
+2016-11-27 19:47:25,839 :: DEBUG :: 
+2016-11-27 19:47:25,839 :: DEBUG :: 
+2016-11-27 19:47:26,949 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:47:26,950 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:47:26,951 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:47:26,952 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:47:30,212 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:47:33,902 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:47:33,902 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:47:35,595 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 19:47:35,604 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 19:47:35,604 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 19:47:35,604 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 19:47:35,605 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:47:35,605 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:47:35,605 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:47:37,233 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:47:37,235 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:47:37,235 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:47:37,236 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:47:38,316 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 19:47:39,678 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:47:39,678 :: DEBUG :: Selection : 1
+2016-11-27 19:47:39,679 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom1
+2016-11-27 19:47:39,693 :: DEBUG :: montrer_victime()
+2016-11-27 19:47:54,222 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:47:54,222 :: DEBUG :: 46
+2016-11-27 19:47:54,222 :: DEBUG :: signaluers : chute vélo
+2016-11-27 19:47:54,222 :: DEBUG :: None
+2016-11-27 19:47:54,222 :: DEBUG :: Nom1
+2016-11-27 19:47:54,222 :: DEBUG :: None
+2016-11-27 19:47:54,223 :: DEBUG :: chute au virage à 10km/h
+2016-11-27 19:47:54,223 :: DEBUG :: aseptie et pansements
+2016-11-27 19:47:54,223 :: DEBUG :: None
+2016-11-27 19:47:54,223 :: DEBUG :: None
+2016-11-27 19:47:54,223 :: DEBUG :: 19
+2016-11-27 19:47:54,223 :: DEBUG :: 47
+2016-11-27 19:47:55,482 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 19:47:57,180 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:47:57,181 :: DEBUG :: Selection : 2
+2016-11-27 19:47:57,181 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom2
+2016-11-27 19:47:57,195 :: DEBUG :: montrer_victime()
+2016-11-27 19:48:02,019 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:48:02,019 :: DEBUG :: 46
+2016-11-27 19:48:02,019 :: DEBUG :: None
+2016-11-27 19:48:02,019 :: DEBUG :: None
+2016-11-27 19:48:02,020 :: DEBUG :: Nom2
+2016-11-27 19:48:02,020 :: DEBUG :: None
+2016-11-27 19:48:02,020 :: DEBUG :: Vue Jacque et tombe amoureuse
+2016-11-27 19:48:02,020 :: DEBUG :: 2 baffes. LSP.
+2016-11-27 19:48:02,020 :: DEBUG :: None
+2016-11-27 19:48:02,020 :: DEBUG :: None
+2016-11-27 19:48:02,020 :: DEBUG :: None
+2016-11-27 19:48:02,020 :: DEBUG :: None
+2016-11-27 19:48:03,474 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:48:03,474 :: DEBUG :: Selection : 2
+2016-11-27 19:48:03,475 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom2
+2016-11-27 19:48:03,487 :: DEBUG :: montrer_victime()
+2016-11-27 19:48:09,383 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:48:09,383 :: DEBUG :: 46
+2016-11-27 19:48:09,383 :: DEBUG :: None
+2016-11-27 19:48:09,384 :: DEBUG :: None
+2016-11-27 19:48:09,384 :: DEBUG :: Nom2
+2016-11-27 19:48:09,384 :: DEBUG :: None
+2016-11-27 19:48:09,384 :: DEBUG :: Vue Jacque et tombe amoureuse
+2016-11-27 19:48:09,384 :: DEBUG :: 2 baffes. LSP.
+2016-11-27 19:48:09,384 :: DEBUG :: None
+2016-11-27 19:48:09,384 :: DEBUG :: None
+2016-11-27 19:48:09,384 :: DEBUG :: 19
+2016-11-27 19:48:09,384 :: DEBUG :: 48
+2016-11-27 19:48:10,932 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:48:10,933 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:48:10,933 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:48:10,934 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:48:12,126 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 19:48:13,637 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:48:13,638 :: DEBUG :: Selection : 3
+2016-11-27 19:48:13,638 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom3
+2016-11-27 19:48:13,652 :: DEBUG :: montrer_victime()
+2016-11-27 19:48:22,513 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:48:22,513 :: DEBUG :: 46
+2016-11-27 19:48:22,514 :: DEBUG :: None
+2016-11-27 19:48:22,514 :: DEBUG :: None
+2016-11-27 19:48:22,514 :: DEBUG :: Nom3
+2016-11-27 19:48:22,514 :: DEBUG :: None
+2016-11-27 19:48:22,514 :: DEBUG :: Vue Jean-Claude et tombe amoureuse
+2016-11-27 19:48:22,514 :: DEBUG :: Une chmabre d'hotel
+2016-11-27 19:48:22,514 :: DEBUG :: None
+2016-11-27 19:48:22,514 :: DEBUG :: None
+2016-11-27 19:48:22,514 :: DEBUG :: 20
+2016-11-27 19:48:22,515 :: DEBUG :: 30
+2016-11-27 19:48:25,632 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:48:25,633 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:48:25,633 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:48:25,634 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:48:26,572 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:48:45,819 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:48:45,819 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:48:50,207 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:48:50,208 :: DEBUG :: Ajout de la victime numéro : 1
+2016-11-27 19:48:50,208 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:48:50,232 :: DEBUG :: montrer_victime()
+2016-11-27 19:49:19,211 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:49:19,212 :: DEBUG :: 48
+2016-11-27 19:49:19,212 :: DEBUG :: signaleurs : chute vélo dernier virage
+2016-11-27 19:49:19,212 :: DEBUG :: 
+2016-11-27 19:49:19,212 :: DEBUG :: Nom1
+2016-11-27 19:49:19,212 :: DEBUG :: 
+2016-11-27 19:49:19,212 :: DEBUG :: roue chassse : chute sur épaule droite
+2016-11-27 19:49:19,213 :: DEBUG :: 
+2016-11-27 19:49:19,213 :: DEBUG :: None
+2016-11-27 19:49:19,213 :: DEBUG :: None
+2016-11-27 19:49:19,213 :: DEBUG :: 
+2016-11-27 19:49:19,213 :: DEBUG :: 
+2016-11-27 19:49:20,400 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:49:20,401 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:49:23,539 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:49:23,540 :: DEBUG :: Ajout de la victime numéro : 2
+2016-11-27 19:49:23,540 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:49:23,563 :: DEBUG :: montrer_victime()
+2016-11-27 19:49:24,664 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:49:24,665 :: DEBUG :: Ajout de la victime numéro : 3
+2016-11-27 19:49:24,665 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:49:24,683 :: DEBUG :: montrer_victime()
+2016-11-27 19:49:24,749 :: DEBUG :: Event handler 'Nouvelle'
+2016-11-27 19:49:24,750 :: DEBUG :: Ajout de la victime numéro : 4
+2016-11-27 19:49:24,750 :: DEBUG :: Creation d'une nouvelle fiche pour : 
+2016-11-27 19:49:24,766 :: DEBUG :: montrer_victime()
+2016-11-27 19:50:14,574 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:50:14,574 :: DEBUG :: 49
+2016-11-27 19:50:14,574 :: DEBUG :: présetnation spontannée
+2016-11-27 19:50:14,574 :: DEBUG :: 
+2016-11-27 19:50:14,574 :: DEBUG :: Nom2
+2016-11-27 19:50:14,574 :: DEBUG :: 
+2016-11-27 19:50:14,574 :: DEBUG :: vue Jean-Claude
+2016-11-27 19:50:14,574 :: DEBUG :: Une chambre d'hotel
+2016-11-27 19:50:14,574 :: DEBUG :: None
+2016-11-27 19:50:14,575 :: DEBUG :: None
+2016-11-27 19:50:14,575 :: DEBUG :: 
+2016-11-27 19:50:14,575 :: DEBUG :: 
+2016-11-27 19:50:16,883 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:50:16,883 :: DEBUG :: 49
+2016-11-27 19:50:16,883 :: DEBUG :: présentation spontanée
+2016-11-27 19:50:16,883 :: DEBUG :: 
+2016-11-27 19:50:16,884 :: DEBUG :: Nom3
+2016-11-27 19:50:16,884 :: DEBUG :: 
+2016-11-27 19:50:16,884 :: DEBUG :: vue Jacques
+2016-11-27 19:50:16,884 :: DEBUG :: Deux baffes
+2016-11-27 19:50:16,884 :: DEBUG :: None
+2016-11-27 19:50:16,884 :: DEBUG :: None
+2016-11-27 19:50:16,884 :: DEBUG :: 
+2016-11-27 19:50:16,884 :: DEBUG :: 
+2016-11-27 19:50:18,031 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:50:18,031 :: DEBUG :: 49
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:18,032 :: DEBUG :: None
+2016-11-27 19:50:18,032 :: DEBUG :: None
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:18,032 :: DEBUG :: 
+2016-11-27 19:50:19,016 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:50:19,017 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:50:19,018 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:50:19,019 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:50:19,020 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 3
+2016-11-27 19:50:20,550 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 19:50:21,073 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 19:50:22,642 :: DEBUG :: Event handler 'Effacer' 
+2016-11-27 19:50:22,642 :: DEBUG :: Effacer ligne : 2
+2016-11-27 19:50:22,643 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:50:22,643 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:50:22,644 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:50:25,777 :: DEBUG :: Event handler 'Enregistrer'!
+2016-11-27 19:50:31,326 :: INFO :: 
+START logger au niveau : 10  ; (10=DEBUG; 20=INFO; 30=WARNING)
+2016-11-27 19:50:31,326 :: DEBUG :: Programme MainCouranteCRF65.py lancé
+2016-11-27 19:50:34,456 :: DEBUG :: Event handler 'Ouvrir'!
+2016-11-27 19:50:34,468 :: DEBUG :: Nombre de victime dans le fichier xlsx : 3
+2016-11-27 19:50:34,468 :: DEBUG :: self.ListeVictimes = []
+2016-11-27 19:50:34,469 :: DEBUG :: len(self.ListeVictimes) = 0
+2016-11-27 19:50:34,469 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:50:34,470 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:50:34,470 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
+2016-11-27 19:50:39,559 :: DEBUG :: Selection ListCtrl ligne numero = 0
+2016-11-27 19:50:40,600 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:50:40,600 :: DEBUG :: Selection : 1
+2016-11-27 19:50:40,602 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom1
+2016-11-27 19:50:40,632 :: DEBUG :: montrer_victime()
+2016-11-27 19:50:55,528 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:50:55,529 :: DEBUG :: 48
+2016-11-27 19:50:55,529 :: DEBUG :: signaleurs : chute vélo dernier virage
+2016-11-27 19:50:55,529 :: DEBUG :: None
+2016-11-27 19:50:55,529 :: DEBUG :: Nom1
+2016-11-27 19:50:55,529 :: DEBUG :: None
+2016-11-27 19:50:55,529 :: DEBUG :: roue chassse : chute sur épaule droite
+2016-11-27 19:50:55,529 :: DEBUG :: Aseptie + Pansements
+2016-11-27 19:50:55,529 :: DEBUG :: None
+2016-11-27 19:50:55,530 :: DEBUG :: None
+2016-11-27 19:50:55,530 :: DEBUG :: 19
+2016-11-27 19:50:55,530 :: DEBUG :: 50
+2016-11-27 19:50:57,068 :: DEBUG :: Selection ListCtrl ligne numero = 1
+2016-11-27 19:50:58,015 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:50:58,016 :: DEBUG :: Selection : 2
+2016-11-27 19:50:58,017 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom2
+2016-11-27 19:50:58,039 :: DEBUG :: montrer_victime()
+2016-11-27 19:51:04,242 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:51:04,243 :: DEBUG :: 49
+2016-11-27 19:51:04,243 :: DEBUG :: présetnation spontannée
+2016-11-27 19:51:04,243 :: DEBUG :: None
+2016-11-27 19:51:04,243 :: DEBUG :: Nom2
+2016-11-27 19:51:04,244 :: DEBUG :: None
+2016-11-27 19:51:04,244 :: DEBUG :: vue Jean-Claude
+2016-11-27 19:51:04,244 :: DEBUG :: Une chambre d'hotel
+2016-11-27 19:51:04,244 :: DEBUG :: None
+2016-11-27 19:51:04,244 :: DEBUG :: None
+2016-11-27 19:51:04,244 :: DEBUG :: 21
+2016-11-27 19:51:04,244 :: DEBUG :: 00
+2016-11-27 19:51:05,745 :: DEBUG :: Selection ListCtrl ligne numero = 2
+2016-11-27 19:51:06,487 :: DEBUG :: Event handler 'Editer' 
+2016-11-27 19:51:06,487 :: DEBUG :: Selection : 3
+2016-11-27 19:51:06,488 :: DEBUG :: Creation d'une nouvelle fiche pour : Nom3
+2016-11-27 19:51:06,506 :: DEBUG :: montrer_victime()
+2016-11-27 19:51:18,354 :: DEBUG :: enregistrer_victime()
+2016-11-27 19:51:18,354 :: DEBUG :: 49
+2016-11-27 19:51:18,354 :: DEBUG :: présentation spontanée
+2016-11-27 19:51:18,355 :: DEBUG :: None
+2016-11-27 19:51:18,355 :: DEBUG :: Nom3
+2016-11-27 19:51:18,355 :: DEBUG :: None
+2016-11-27 19:51:18,355 :: DEBUG :: vue Jacques
+2016-11-27 19:51:18,355 :: DEBUG :: Deux baffes et puis s'en va. LSP.
+2016-11-27 19:51:18,355 :: DEBUG :: None
+2016-11-27 19:51:18,355 :: DEBUG :: None
+2016-11-27 19:51:18,355 :: DEBUG :: 19
+2016-11-27 19:51:18,355 :: DEBUG :: 51
+2016-11-27 19:51:19,358 :: DEBUG :: Event handler 'Raffraichir' 
+2016-11-27 19:51:19,360 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 0
+2016-11-27 19:51:19,361 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 1
+2016-11-27 19:51:19,361 :: DEBUG :: ... insere victime dans la list_ctrl en ligne : 2
