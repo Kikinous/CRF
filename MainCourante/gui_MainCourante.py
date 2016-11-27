@@ -101,7 +101,8 @@ class MainCourante_Fenetre(wx.Frame):
         event.Skip()
 
     def Ouvrir(self, event):  # wxGlade: MainCourante_Fenetre.<event_handler>
-        print "Event handler 'Ouvrir' not implemented!"
+        print "Event handler 'Ouvrir'"
+        self.wb_out = openpyxl.load_workbook("DPS.xlsx", data_only=True)
         event.Skip()
 
 # end of class MainCourante_Fenetre
