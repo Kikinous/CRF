@@ -34,7 +34,7 @@ class MainCourante_Fenetre(wx.Frame):
         # begin wxGlade: MainCourante_Fenetre.__init__
         wx.Frame.__init__(self, *args, **kwds)
         self.list_ctrl_ListeVictime = wx.ListCtrl(self, wx.ID_ANY)
-        self.button_Editer_Raffraichir = wx.Button(self, wx.ID_ANY, _("Raffraichir"))
+        self.button_Editer_Raffraichir = wx.Button(self, wx.ID_ANY, _("Rafraichir"))
         self.spin_ctrl_1 = wx.SpinCtrl(self, wx.ID_ANY, "", min=0, max=100)
         self.button_Editer = wx.Button(self, wx.ID_ANY, _("Editer"))
         self.button_Effacer = wx.Button(self, wx.ID_ANY, _("Effacer"))
