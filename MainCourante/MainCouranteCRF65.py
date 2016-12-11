@@ -24,6 +24,7 @@ class Victime:
         self.Destination     = None
         self.Nom             = None
         self.Prenom          = None
+        self.Age             = None
         self.Circonstances   = None
         self.Traitement      = None
         self.Numero_Bilan    = None
@@ -38,6 +39,7 @@ class Victime:
         self.Destination     = ""
         self.Nom             = ""
         self.Prenom          = ""
+        self.Age             = ""
         self.Circonstances   = ""
         self.Traitement      = ""
         self.Depart_HH       = ""
@@ -50,6 +52,7 @@ class Victime:
         self.Destination     = "L.S.P."
         self.Nom             = "Durant"
         self.Prenom          = "Paul"
+        self.Age             = "25"
         self.Circonstances   = "Tombe a velo"
         self.Traitement      = "Desinfection et pansement"
         self.Numero_Bilan    = ""
@@ -62,6 +65,7 @@ class Victime:
         logger.debug(self.Destination)
         logger.debug(self.Nom)
         logger.debug(self.Prenom)
+        logger.debug(self.Age)
         logger.debug(self.Circonstances)
         logger.debug(self.Traitement)
         logger.debug(self.Numero_Bilan)
@@ -88,6 +92,7 @@ class GUI_Victime_Edition(GUI_Victime):
         self.victime_gui.Destination     = self.text_ctrl_destination.GetValue()
         self.victime_gui.Nom             = self.text_ctrl_Nom.GetValue()
         self.victime_gui.Prenom          = self.text_ctrl_Prenom.GetValue()
+        self.victime_gui.Age             = self.text_ctrl_Age.GetValue()
         self.victime_gui.Circonstances   = self.text_ctrl_Circonstances.GetValue()
         self.victime_gui.Traitement      = self.text_ctrl_Traitement.GetValue()
         self.victime_gui.Numero_Bilan    = self.text_ctrl_Numero_Bilan.GetValue()
@@ -103,6 +108,7 @@ class GUI_Victime_Edition(GUI_Victime):
         self.text_ctrl_destination.SetValue(self.victime_gui.Destination)
         self.text_ctrl_Nom.SetValue(self.victime_gui.Nom)
         self.text_ctrl_Prenom.SetValue(self.victime_gui.Prenom)
+        self.text_ctrl_Age.SetValue(self.victime_gui.Age)
         self.text_ctrl_Circonstances.SetValue(self.victime_gui.Circonstances)
         self.text_ctrl_Traitement.SetValue(self.victime_gui.Traitement)
         self.text_ctrl_Numero_Bilan.SetValue(str(self.victime_gui.Numero_Bilan))
@@ -195,12 +201,13 @@ class GUI_MainCourante_Fenetre(MainCourante_Fenetre):
             self.ListeVictimes[k].Destination     = unicode(ws.cell(row=k+2, column=5).value)
             self.ListeVictimes[k].Nom             = unicode(ws.cell(row=k+2, column=6).value)
             self.ListeVictimes[k].Prenom          = unicode(ws.cell(row=k+2, column=7).value)
-            self.ListeVictimes[k].Circonstances   = unicode(ws.cell(row=k+2, column=8).value)
-            self.ListeVictimes[k].Traitement      = unicode(ws.cell(row=k+2, column=9).value)
-            self.ListeVictimes[k].Numero_Bilan    = unicode(ws.cell(row=k+2, column=10).value)
-            self.ListeVictimes[k].Numero_Decharge = unicode(ws.cell(row=k+2, column=11).value)
-            self.ListeVictimes[k].Depart_HH       = unicode(ws.cell(row=k+2, column=12).value)
-            self.ListeVictimes[k].Depart_MM       = unicode(ws.cell(row=k+2, column=13).value)
+            self.ListeVictimes[k].Age             = unicode(ws.cell(row=k+2, column=8).value)
+            self.ListeVictimes[k].Circonstances   = unicode(ws.cell(row=k+2, column=9).value)
+            self.ListeVictimes[k].Traitement      = unicode(ws.cell(row=k+2, column=10).value)
+            self.ListeVictimes[k].Numero_Bilan    = unicode(ws.cell(row=k+2, column=11).value)
+            self.ListeVictimes[k].Numero_Decharge = unicode(ws.cell(row=k+2, column=12).value)
+            self.ListeVictimes[k].Depart_HH       = unicode(ws.cell(row=k+2, column=13).value)
+            self.ListeVictimes[k].Depart_MM       = unicode(ws.cell(row=k+2, column=14).value)
         self.Raffraichir_ListCtrl(self.ListeVictimes)
         event.Skip()
     def Enregistrer(self, event):
@@ -221,18 +228,20 @@ class GUI_MainCourante_Fenetre(MainCourante_Fenetre):
         ws.column_dimensions["F"].width = 15
         ws.cell(row=1, column=7).value = "PRENOM"
         ws.column_dimensions["G"].width = 15
-        ws.cell(row=1, column=8).value = "CIRCONSTANCES"
-        ws.column_dimensions["H"].width = 30
-        ws.cell(row=1, column=9).value = "TRAITEMENT"
-        ws.column_dimensions["I"].width = 100
-        ws.cell(row=1, column=10).value = "BILAN#"
-        ws.column_dimensions["J"].width = 12
-        ws.cell(row=1, column=11).value = "DECHARGE#"
+        ws.cell(row=1, column=8).value = "AGE"
+        ws.column_dimensions["H"].width = 10
+        ws.cell(row=1, column=9).value = "CIRCONSTANCES"
+        ws.column_dimensions["I"].width = 30
+        ws.cell(row=1, column=10).value = "TRAITEMENT"
+        ws.column_dimensions["J"].width = 100
+        ws.cell(row=1, column=11).value = "BILAN#"
         ws.column_dimensions["K"].width = 12
-        ws.cell(row=1, column=12).value = "Dép HH"
-        ws.column_dimensions["K"].width = 7
-        ws.cell(row=1, column=13).value = "Dép MM"
+        ws.cell(row=1, column=12).value = "DECHARGE#"
+        ws.column_dimensions["L"].width = 12
+        ws.cell(row=1, column=13).value = "Dép HH"
         ws.column_dimensions["M"].width = 7
+        ws.cell(row=1, column=14).value = "Dép MM"
+        ws.column_dimensions["N"].width = 7
         for i in range(len(self.ListeVictimes)):
             ws.cell(row=i+2, column=1).value = unicode(self.ListeVictimes[i].Dossier_num)
             ws.cell(row=i+2, column=2).value = unicode(self.ListeVictimes[i].Arrivee_HH)
@@ -241,12 +250,13 @@ class GUI_MainCourante_Fenetre(MainCourante_Fenetre):
             ws.cell(row=i+2, column=5).value = unicode(self.ListeVictimes[i].Destination)
             ws.cell(row=i+2, column=6).value = unicode(self.ListeVictimes[i].Nom)
             ws.cell(row=i+2, column=7).value = unicode(self.ListeVictimes[i].Prenom)
-            ws.cell(row=i+2, column=8).value = unicode(self.ListeVictimes[i].Circonstances)
-            ws.cell(row=i+2, column=9).value = unicode(self.ListeVictimes[i].Traitement)
-            ws.cell(row=i+2, column=10).value = unicode(self.ListeVictimes[i].Numero_Bilan)
-            ws.cell(row=i+2, column=11).value = unicode(self.ListeVictimes[i].Numero_Decharge)
-            ws.cell(row=i+2, column=12).value = unicode(self.ListeVictimes[i].Depart_HH)
-            ws.cell(row=i+2, column=13).value = unicode(self.ListeVictimes[i].Depart_MM)
+            ws.cell(row=i+2, column=8).value = unicode(self.ListeVictimes[i].Age)
+            ws.cell(row=i+2, column=9).value = unicode(self.ListeVictimes[i].Circonstances)
+            ws.cell(row=i+2, column=10).value = unicode(self.ListeVictimes[i].Traitement)
+            ws.cell(row=i+2, column=11).value = unicode(self.ListeVictimes[i].Numero_Bilan)
+            ws.cell(row=i+2, column=12).value = unicode(self.ListeVictimes[i].Numero_Decharge)
+            ws.cell(row=i+2, column=13).value = unicode(self.ListeVictimes[i].Depart_HH)
+            ws.cell(row=i+2, column=14).value = unicode(self.ListeVictimes[i].Depart_MM)
         wb.save('MainCourante.xlsx')
         wb.save('MainCourante.crf65.dps')
         event.Skip()
