@@ -1,3 +1,1 @@
-![Image of Yaktocat](https://octodex.github.com/images/CaptureEcran.png)
-
-
+![Image of the Application](https://github.com/Kikinous/CRF/tree/master/MainCourante/CaptureEcran.png)
